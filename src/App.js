@@ -6,6 +6,7 @@ import Auth from './Components/Auth/Auth';
 import Locker from './Components/Locker/Locker';
 import About from './Components/Modals/About';
 import Background from './assets/20170706_151624.jpg';
+import APIURL from './helpers/environment';
 
 import{
   BrowserRouter as Router, Route, Switch

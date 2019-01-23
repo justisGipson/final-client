@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Radium from 'radium';
+import APIURL from '../../helpers/environment';
 import {Button, ButtonGroup, Form, FormGroup, Label, Input} from 'reactstrap';
 
 const styles = {
@@ -25,7 +26,7 @@ class Auth extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    const url = this.state.login ? 'http://localhost:3000/auth/login' : 'http://localhost:3000/auth/signup'
+    const url = this.state.login ? `${APIURL}/auth/login` : `${APIURL}/auth/signup`
 
     fetch(url, {
       method: 'POST',

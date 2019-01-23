@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Container, Row, Col} from 'reactstrap';
 import Gear from './Gear/Gear';
+import APIURL from '../../helpers/environment'
 
 class LockerIndex extends React.Component{
     constructor(props){
@@ -17,7 +18,7 @@ class LockerIndex extends React.Component{
     }
 
     addGear = () => {
-        fetch("http://localhost:3000/locker/newItem", {
+        fetch(`${APIURL}/locker/newItem`, {
             method: 'POST',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -31,7 +32,7 @@ class LockerIndex extends React.Component{
     }
 
     fetchGear = (event) => {
-        fetch(`http://localhost:3000/locker/all/${event.target.id}`, {
+        fetch(`${APIURL}/locker/all/${event.target.id}`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -45,7 +46,7 @@ class LockerIndex extends React.Component{
     }
 
     gearUpdate = (event, gear) => {
-        fetch(`http://localhost:3000/locker/update/${event.target.id}`, {
+        fetch(`${APIURL}/locker/update/${event.target.id}`, {
             method: 'PUT',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -66,7 +67,7 @@ class LockerIndex extends React.Component{
     }
 
     gearDelete = (event) => {
-        fetch(`http://localhost:3000/removeItem/${event.target.id}`, {
+        fetch(`${APIURL}/removeItem/${event.target.id}`, {
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',
