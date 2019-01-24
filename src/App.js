@@ -4,9 +4,8 @@ import Radium from 'radium';
 import Sitebar from './Components/Navbar/Navbar';
 import Auth from './Components/Auth/Auth';
 import Locker from './Components/Locker/Locker';
-import About from './Components/Modals/About';
 import Background from './assets/20170706_151624.jpg';
-import APIURL from './helpers/environment';
+// import APIURL from './helpers/environment';
 
 import{
   BrowserRouter as Router, Route, Switch
@@ -63,7 +62,7 @@ class App extends Component {
     } else {
       return (
       <Route path='/Auth'>
-        <Auth />
+        <Auth setToken={this.setSessionState} />
       </Route>
       )
     }
@@ -74,7 +73,6 @@ class App extends Component {
       <Router>
       <div className="App" style={bgImage}>
         <Sitebar />
-        <About />
         {this.getToLocker()}
       </div>
       </Router>

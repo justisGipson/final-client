@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {Container, Row, Col} from 'reactstrap';
-import Gear from './Gear/Gear';
+import Gear from './Gear';
+import LockerEdit from './LockerEdit';
 import APIURL from '../../helpers/environment'
 
-class LockerIndex extends React.Component{
+class LockerIndex extends Component{
     constructor(props){
         super(props)
         this.state = {
@@ -32,11 +33,11 @@ class LockerIndex extends React.Component{
     }
 
     fetchGear = (event) => {
-        fetch(`${APIURL}/locker/all/${event.target.id}`, {
+        fetch(`${APIURL}/locker/all`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': this.props.auth.token
+                'Authorization': this.props.token
             })
         })
         .then(res => res.json())
@@ -82,8 +83,11 @@ class LockerIndex extends React.Component{
         return(
             <Container>
                 <Row>
-                    <Col>
-                    <h1>STUFF</h1>
+                    <Col md='3'>
+                        <addGear token={this.props.token} updateGearArray={this.fetchGear} /> 
+                    </Col>
+                    <Col md='9'>
+                        {this.state.updateStart ? <LockerEdit t={this.state.updateStart} update={this.gearUpdate} gear={this.state.gearToUpdate} /> : <div></div>}
                     </Col>
                 </Row>
             </Container>

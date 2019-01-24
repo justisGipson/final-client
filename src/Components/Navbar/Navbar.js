@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
 import Radium from 'radium';
-import AboutModal from '../Modals/About';
+import Auth from '../Auth/Auth';
 import {
     Collapse,
     Navbar,
-    // NavbarToggler,
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink
+    NavLink, Button, Modal, ModalHeader, ModalBody, ModalFooter
     } from 'reactstrap';
 
 const styles = {
@@ -16,19 +15,32 @@ const styles = {
         backgroundColor: '#3c5270',
         fontFamily: "'Poppins', sans-serif",
         opacity: '.9',
-        height: '8vh'
+        height: '7vh'
     },
     text: {
         color: '#c1c6cc',
-        marginLeft: '75%',
         textDecoration: 'none',
-        marginTop: '-17px'
+        display: 'flex-inline',
+        fontSize: '1.2rem'
     },
     text1: {
       color: '#c1c6cc',
-      fontSize: '14pt',
-      marginLeft: '-90%',
-      marginTop: '-10vh'
+      fontSize: '2.8rem',
+    },
+    modal: {
+      backgroundColor: '#3c5270',
+      color: '#c1c6cc',
+      fontFamily: "'Poppins', sans-serif",
+      opacity: '.9',
+      fontSize: '1.4rem',
+      lineHeight: '1.7'
+    },
+    modalHead: {
+      backgroundColor: '#3c5270',
+      color: '#c1c6cc',
+      fontFamily: "'Poppins', sans-serif",
+      opacity: '.9',
+      fontSize: '2.5rem'
     }
 }
 
@@ -44,13 +56,18 @@ class Sitebar extends Component{
       toggle() {
         this.setState({
           isOpen: !this.state.isOpen
-        });
+        }, console.log(this.state));
       }
 
       toggleModal = () => {
         this.setState({
           isOpen: !this.state.isOpen
         });
+      }
+
+      logout = () => {
+        this.setState({sessionToken: ''});
+        localStorage.clear()
       }
 
       render() {
@@ -61,10 +78,10 @@ class Sitebar extends Component{
               <Collapse isOpen={this.state.isOpen} navbar>
                 <Nav style={styles.text} className="ml-auto" navbar>
                   <NavItem>
-                    <NavLink link={AboutModal} style={styles.text}>About</NavLink>
+                    <NavLink href='#' onClick={this.toggle} style={styles.text}>About</NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink href="../components/navbar/logout/logout" style={styles.text}>Logout</NavLink>
+                    <NavLink href="./auth" style={styles.text} onClick={this.logout} >Logout</NavLink>{Auth}
                   </NavItem>
                   <NavItem>
                     <NavLink href="https://github.com/justisGipson" style={styles.text}>Github</NavLink>
@@ -72,6 +89,17 @@ class Sitebar extends Component{
                 </Nav>
               </Collapse>
             </Navbar>
+
+            <Modal isOpen={this.state.isOpen} toggle={this.toggle} className={this.props.className} style={styles.modal}>
+                <ModalHeader style={styles.modalHead}>About gearLocker</ModalHeader>
+                  <ModalBody style={styles.modal}>
+                      {/* <b>gearLocker is designed for tracking your gear for backpacking trip, overnighters, and those long weekends.</b><br /> */}
+                      Hopefully you can find some use out of this. Keep track of all your gear or just the things you plan on taking on any trip. This app will be in constant development, and will hopefully be mobile responsive so you can keep it bookmarked on your phone to use when you're not at your computer.
+                    </ModalBody>
+                  <ModalFooter style={styles.modal}>
+                      <Button color='info' onClick={this.toggle}>Cancel</Button>
+                  </ModalFooter>
+              </Modal>
           </div>
         );
       }

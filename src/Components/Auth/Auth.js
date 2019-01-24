@@ -10,9 +10,14 @@ const styles = {
         left: '50%',
         transform: 'translate(-50%, -50%)',
         fontFamily: "'Poppins', sans-serif",
-        color: '#FFF0FF',
-        fontSize: '14pt'
-
+        color: '#E27259',
+    },
+    font: {
+      fontFamily: "'Poppins', sans-serif"
+    },
+    font1: {
+      fontFamily: "'Poppins', sans-serif",
+      fontSize: '3.8rem'
     }
 }
 
@@ -43,7 +48,10 @@ class Auth extends Component {
       }
     })
       .then(res => res.json())
-      .then(data => this.props.tokenHandler(data.sessionToken))
+      // .then(text => console.log(text))
+      .then(data => {
+        this.props.setToken(data.sessionToken)
+      })
   }
 
   handleChange = (event) => {
@@ -66,24 +74,24 @@ class Auth extends Component {
     let signupField = this.state.login
       ? null
       : (
-        <div>
+        <div style={styles.font}>
           <Label htmlFor="username"></Label><br/>
-          <Input type="text" id="username" onChange={this.handleChange} value={this.state.username} placeholder='Username:'/><br/>
+          <Input type="text" id="username" onChange={this.handleChange} value={this.state.username} placeholder='Username:'/>
         </div>
       )
 
     return(
       <Form style={styles.card} onSubmit={this.handleSubmit}>
         <FormGroup>
-          <h1>{title}</h1>
+          <h1 style={styles.font1}>{title}</h1>
           <Label htmlFor="email"></Label><br/>
-          <Input type="text" id="email" onChange={this.handleChange} value={this.state.email} placeholder='Email:'/><br/>
+          <Input type="text" id="email" onChange={this.handleChange} value={this.state.email} style={styles.font} placeholder='Email:'/>
           {signupField}
-          <Label htmlFor="password"></Label><br/>
-          <Input type="password" id="password" onChange={this.handleChange} value={this.state.password} placeholder='Password:'/><br/>
+          <Label htmlFor="password"></Label>
+          <Input type="password" id="password" onChange={this.handleChange} value={this.state.password} style={styles.font} placeholder='Password:'/><br/>
           <ButtonGroup>
-            <Button outline color="secondary" size="lg" onClick={this.loginToggle}>Signup</Button><br/>
-            <Button outline color="secondary" size="lg" type="submit">Submit</Button>
+            <Button className="btn btn-secondary" size="lg" style={styles.font} onClick={this.loginToggle}>Signup</Button>
+            <Button className="btn btn-secondary" size="lg" style={styles.font} type="submit">Submit</Button>
           </ButtonGroup>
         </FormGroup>
       </Form>

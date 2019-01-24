@@ -6,7 +6,9 @@ switch(window.location.hostname){
         break;
     case 'jg-gear-locker.herokuapp.com':
         APIURL = 'https://gear-locker.herokuapp.com';
-    
+        break;
+    default:
+        APIURL = 'jg-gear-locker.herokuapp.com';
 }
 
 export default APIURL;
