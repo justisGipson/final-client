@@ -17,11 +17,14 @@ const styles = {
 }
 
 class Auth extends Component {
-  state = {
-    login: true,
-    username: '',
-    email: '',
-    password: ''
+  constructor(props){
+    super(props)
+    this.state = {
+      login: true,
+      username: '',
+      email: '',
+      password: ''
+    }
   }
 
   handleSubmit = (event) => {
@@ -39,7 +42,7 @@ class Auth extends Component {
         'Content-Type': 'application/json'
       }
     })
-      .then(response => response.json())
+      .then(res => res.json())
       .then(data => this.props.tokenHandler(data.sessionToken))
   }
 
