@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {Container, Row, Col} from 'reactstrap';
-import Gear from './Gear';
+import GearTable from './GearTable';
 import LockerEdit from './LockerEdit';
+import CreateGear from './CreateGear';
 import APIURL from '../../helpers/environment'
 
 class LockerIndex extends Component{
@@ -79,17 +80,20 @@ class LockerIndex extends Component{
     }
 
     render(){
-        const gear = this.state.gear.length >= 1 ? <Gear gear={this.state.gear} delete = {this.gearDelete} update={this.setGearUpdate} /> : <h2>Start logging gear to display table.</h2>
+        const gear = this.state.gear.length >= 1 ? <GearTable gear={this.state.gear} delete={this.gearDelete} update={this.setGearUpdate} /> : <h2>Start logging gear to display table.</h2>
         return(
             <Container>
                 <Row>
                     <Col md='3'>
-                        <addGear token={this.props.token} updateGearArray={this.fetchGear} /> 
+                        <CreateGear token={this.props.token} updateGearArray={this.fetchGear} /> 
                     </Col>
                     <Col md='9'>
-                        {this.state.updateStart ? <LockerEdit t={this.state.updateStart} update={this.gearUpdate} gear={this.state.gearToUpdate} /> : <div></div>}
+                        {gear}
                     </Col>
                 </Row>
+                <Col md='12'>
+                        {this.state.updateStart ? <LockerEdit t={this.state.updateStart} update={this.gearUpdate} gear={this.state.gearToUpdate} /> : <div></div>}
+                </Col>
             </Container>
         )
     }

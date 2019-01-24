@@ -10,7 +10,7 @@ const styles = {
         left: '50%',
         transform: 'translate(-50%, -50%)',
         fontFamily: "'Poppins', sans-serif",
-        color: '#E27259',
+        color: '#c1c6cc'
     },
     font: {
       fontFamily: "'Poppins', sans-serif"
@@ -18,6 +18,9 @@ const styles = {
     font1: {
       fontFamily: "'Poppins', sans-serif",
       fontSize: '3.8rem'
+    },
+    box: {
+      backgroundColor: 'rgb(60, 82, 112, 0.7)',
     }
 }
 
@@ -71,6 +74,7 @@ class Auth extends Component {
 
   render(){
     let title = this.state.login ? "gearLocker Login" : "Signup for gearLocker";
+    let button = this.state.login ? "Signup" : "Login";
     let signupField = this.state.login
       ? null
       : (
@@ -82,7 +86,7 @@ class Auth extends Component {
 
     return(
       <Form style={styles.card} onSubmit={this.handleSubmit}>
-        <FormGroup>
+        <FormGroup style={styles.box}>
           <h1 style={styles.font1}>{title}</h1>
           <Label htmlFor="email"></Label><br/>
           <Input type="text" id="email" onChange={this.handleChange} value={this.state.email} style={styles.font} placeholder='Email:'/>
@@ -90,7 +94,7 @@ class Auth extends Component {
           <Label htmlFor="password"></Label>
           <Input type="password" id="password" onChange={this.handleChange} value={this.state.password} style={styles.font} placeholder='Password:'/><br/>
           <ButtonGroup>
-            <Button className="btn btn-secondary" size="lg" style={styles.font} onClick={this.loginToggle}>Signup</Button>
+            <Button className="btn btn-secondary" size="lg" style={styles.font} onClick={this.loginToggle}>{button}</Button>
             <Button className="btn btn-secondary" size="lg" style={styles.font} type="submit">Submit</Button>
           </ButtonGroup>
         </FormGroup>

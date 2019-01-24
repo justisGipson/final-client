@@ -5,7 +5,6 @@ import Sitebar from './Components/Navbar/Navbar';
 import Auth from './Components/Auth/Auth';
 import Locker from './Components/Locker/Locker';
 import Background from './assets/20170706_151624.jpg';
-// import APIURL from './helpers/environment';
 
 import{
   BrowserRouter as Router, Route, Switch

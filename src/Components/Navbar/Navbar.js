@@ -15,17 +15,18 @@ const styles = {
         backgroundColor: '#3c5270',
         fontFamily: "'Poppins', sans-serif",
         opacity: '.9',
-        height: '7vh'
+        height: '7vh',
     },
     text: {
         color: '#c1c6cc',
         textDecoration: 'none',
         display: 'flex-inline',
-        fontSize: '1.2rem'
+        fontSize: '1.6rem'
     },
     text1: {
       color: '#c1c6cc',
-      fontSize: '2.8rem',
+      fontSize: '2.9rem',
+      fontWeight: 'bold'
     },
     modal: {
       backgroundColor: '#3c5270',
