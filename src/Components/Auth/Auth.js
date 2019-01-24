@@ -31,7 +31,7 @@ class Auth extends Component {
     fetch(url, {
       method: 'POST',
       body: JSON.stringify({
-        username: this.state.firstName,
+        username: this.state.username,
         email: this.state.email,
         password: this.state.password
       }),
