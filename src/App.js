@@ -60,7 +60,7 @@ class App extends Component {
       )
     } else {
       return (
-      <Route path='/Auth'>
+      <Route path='/'>
         <Auth setToken={this.setSessionState} />
       </Route>
       )
