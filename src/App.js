@@ -49,32 +49,34 @@ class App extends Component {
     this.setState({sessionToken: token});
   }
 
-  getToLocker = () => {
-    if(this.state.sessionToken === localStorage.getItem('token')) {
-      return(
-        <Switch>
-          <Route path='/' exact>
-            <Locker />
-          </Route>
-        </Switch>
-      )
-    } else {
-      return (
-      <Route path='/'>
-        <Auth setToken={this.setSessionState} />
-      </Route>
-      )
-    }
-  }
+  // getToLocker = () => {
+  //   if(this.state.sessionToken === localStorage.getItem('token')) {
+  //     return(
+  //       <Switch>
+  //         <Route path='/' exact>
+  //           <Locker />
+  //         </Route>
+  //       </Switch>
+  //     )
+  //   } else {
+  //     return (
+  //     <Route path='/Auth'>
+  //       <Auth setToken={this.setSessionState} />
+  //     </Route>
+  //     )
+  //   }
+  // }
 
   render() {
+    const protectedViews = !this.state.sessionToken ? <Auth setToken={this.setSessionState} /> : <Locker />
     return (
-      <Router>
+      //<Router>
       <div className="App" style={bgImage}>
         <Sitebar />
-        {this.getToLocker()}
+        {protectedViews}
+        {/* {this.getToLocker()} */}
       </div>
-      </Router>
+     // </Router>
     );
   }
 }

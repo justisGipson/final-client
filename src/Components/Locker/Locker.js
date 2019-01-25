@@ -36,7 +36,7 @@ class LockerIndex extends Component{
             method: 'POST',
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': this.props.token
+                'Authorization': localStorage.getItem('token')
             })
         })
         .then(res => res.json())
@@ -50,7 +50,7 @@ class LockerIndex extends Component{
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': this.props.token
+                'Authorization': localStorage.getItem('token')
             })
         })
         .then(res => res.json())
