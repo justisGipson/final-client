@@ -1,9 +1,21 @@
 import React, {Component} from 'react';
 import {Container, Row, Col} from 'reactstrap';
+import Radium from 'radium';
 import GearTable from './GearTable';
 import LockerEdit from './LockerEdit';
 import CreateGear from './CreateGear';
 import APIURL from '../../helpers/environment'
+
+const styles = {
+    font: {
+        fontFamily: "'Poppins', sans-serif",
+        color: '#c1c6cc'
+      },
+    box: {
+        backgroundColor: 'rgb(60, 82, 112, 0.9)',
+        marginTop: '11vh'
+    }
+}
 
 class LockerIndex extends Component{
     constructor(props){
@@ -24,7 +36,7 @@ class LockerIndex extends Component{
             method: 'POST',
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': this.props.auth.token
+                'Authorization': this.props.token
             })
         })
         .then(res => res.json())
@@ -52,7 +64,7 @@ class LockerIndex extends Component{
             method: 'PUT',
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': this.props.auth.token
+                'Authorization': this.props.token
             })
         })
         .then(res => {
@@ -73,14 +85,14 @@ class LockerIndex extends Component{
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': this.props.auth.token
+                'Authorization': this.props.token
             })
         })
         .then(res => this.fetchGear())
     }
 
     render(){
-        const gear = this.state.gear.length >= 1 ? <GearTable gear={this.state.gear} delete={this.gearDelete} update={this.setGearUpdate} /> : <h2>Start logging gear to display table.</h2>
+        const gear = this.state.gear.length >= 1 ? <GearTable gear={this.state.gear} delete={this.gearDelete} update={this.setGearUpdate} /> : <h2 style={[styles.font, styles.box]}>Start logging gear to display table.</h2>
         return(
             <Container>
                 <Row>
@@ -99,4 +111,4 @@ class LockerIndex extends Component{
     }
 }
 
-export default LockerIndex;
+export default Radium(LockerIndex);

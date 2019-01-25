@@ -1,7 +1,30 @@
 import React, {Component} from 'react';
+import Radium from 'radium';
 import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
 
-export default class LockerEdit extends Component{
+const styles = {
+    font: {
+        fontFamily: "'Poppins', sans-serif",
+        color: '#c1c6cc'
+      },
+      modal: {
+        backgroundColor: '#3c5270',
+        color: '#c1c6cc',
+        fontFamily: "'Poppins', sans-serif",
+        opacity: '.9',
+        fontSize: '1.4rem',
+        lineHeight: '1.7'
+      },
+      modalHead: {
+        backgroundColor: '#3c5270',
+        color: '#c1c6cc',
+        fontFamily: "'Poppins', sans-serif",
+        opacity: '.9',
+        fontSize: '2.5rem'
+      }
+}
+
+class LockerEdit extends Component{
     constructor(props){
         super(props);
         this.state = {
@@ -35,27 +58,27 @@ export default class LockerEdit extends Component{
     render(){
         return(
             <div>
-                <Modal isOpen={true}>
-                    <ModalHeader>Create a new locker item:</ModalHeader>
-                    <ModalBody>
+                <Modal style={styles.modal} isOpen={true}>
+                    <ModalHeader style={[styles.font, styles.modalHead]}>Create a new locker item:</ModalHeader>
+                    <ModalBody style={styles.modal}>
                         <Form onSubmit={this.handleSubmit}>
-                            <FormGroup>
+                            <FormGroup style={styles.font}>
                                 <Label for='itemName'>Item Name:</Label>
                                 <Input id='itemName' type='text' name='itemName' value={this.state.itemName} placeholder='New Item' onChange={this.handleChange} />
                             </FormGroup>
-                            <FormGroup>
-                                <Label for='desc'>Description:</Label>
-                                <Input id='desc' type='text' name='desc' value={this.state.description} placeholder='Description' onChange={this.handleChange} />
+                            <FormGroup style={styles.font}>
+                                <Label for='description'>Description:</Label>
+                                <Input id='description' type='text' name='description' value={this.state.description} placeholder='Description' onChange={this.handleChange} />
                             </FormGroup>
-                            <FormGroup>
+                            <FormGroup style={styles.font}>
                                 <Label for='weight'>Weight:</Label>
                                 <Input id='weight' type='text' name='weight' value={this.state.weight} placeholder='Item Weight' onChange={this.handleChange} />
                             </FormGroup>
-                            <FormGroup>
+                            <FormGroup style={styles.font}>
                                 <Label for='quantity'>Quantity:</Label>
                                 <Input id='quantity' type='integer' name='quantity' value={this.state.quantity} placeholder='Quantity' onChange={this.handleChange} />
                             </FormGroup>
-                            <Button type='submit' color='secondary'>Submit</Button>
+                            <Button className="btn btn-secondary" size="lg" style={styles.font} type='submit'>Submit</Button>
                         </Form>
                     </ModalBody>
                 </Modal>
@@ -63,3 +86,5 @@ export default class LockerEdit extends Component{
         )
     }
 }
+
+export default Radium(LockerEdit);
