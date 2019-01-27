@@ -32,13 +32,14 @@ class CreateGear extends Component{
     }
 
     handleSubmit = (event) => {
+        // console.log(this.state)
         event.preventDefault();
-        fetch(`${APIURL}/locker/newGear`, {
+        fetch(`${APIURL}/locker/newItem`, {
             method: 'POST',
             body: JSON.stringify({gear: this.state}),
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': this.props.token
+                'Authorization': localStorage.getItem('token')
             })
         })
         .then(res => res.json())

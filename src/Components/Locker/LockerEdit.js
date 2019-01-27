@@ -37,10 +37,10 @@ class LockerEdit extends Component{
 
     componentWillMount(){
         this.setState({
-            itemName: this.props.locker.itemName,
-            description: this.props.locker.description,
-            weight: this.props.locker.weight,
-            quantity: this.props.locker.quantity
+            itemName: this.props.locker.gear.itemName,
+            description: this.props.locker.gear.description,
+            weight: this.props.locker.gear.weight,
+            quantity: this.props.locker.gear.quantity
         })
     }
 
@@ -59,7 +59,7 @@ class LockerEdit extends Component{
         return(
             <div>
                 <Modal style={styles.modal} isOpen={true}>
-                    <ModalHeader style={[styles.font, styles.modalHead]}>Create a new locker item:</ModalHeader>
+                    <ModalHeader style={[styles.font, styles.modalHead]}>Edit locker item:</ModalHeader>
                     <ModalBody style={styles.modal}>
                         <Form onSubmit={this.handleSubmit}>
                             <FormGroup style={styles.font}>

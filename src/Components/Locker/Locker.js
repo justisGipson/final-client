@@ -13,7 +13,7 @@ const styles = {
       },
     box: {
         backgroundColor: 'rgb(60, 82, 112, 0.9)',
-        marginTop: '11vh'
+        marginTop: '10.5vh'
     }
 }
 
@@ -64,7 +64,7 @@ class LockerIndex extends Component{
             method: 'PUT',
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': this.props.token
+                'Authorization': localStorage.getItem('token')
             })
         })
         .then(res => {
@@ -85,7 +85,7 @@ class LockerIndex extends Component{
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': this.props.token
+                'Authorization': localStorage.getItem('token')
             })
         })
         .then(res => this.fetchGear())

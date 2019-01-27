@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Radium from 'radium';
-import Auth from '../Auth/Auth';
+// import Auth from '../Auth/Auth';
 import {
     Collapse,
     Navbar,
@@ -29,7 +29,6 @@ const styles = {
       fontWeight: 'bold'
     },
     modal: {
-      backgroundColor: '#3c5270',
       color: '#c1c6cc',
       fontFamily: "'Poppins', sans-serif",
       opacity: '.9',
@@ -42,6 +41,9 @@ const styles = {
       fontFamily: "'Poppins', sans-serif",
       opacity: '.9',
       fontSize: '2.5rem'
+    },
+    modalBody: {
+      backgroundColor: '#3c5270',
     }
 }
 
@@ -72,6 +74,7 @@ class Sitebar extends Component{
       }
 
       render() {
+        let logout = this.isAuthenticated ? 'Logout' : undefined;
         return (
           <div style={styles.navbar}>
             <Navbar expand="md">
@@ -82,7 +85,7 @@ class Sitebar extends Component{
                     <NavLink href='#' onClick={this.toggle} style={styles.text}>About</NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink href="./auth" style={styles.text} onClick={this.logout} >Logout</NavLink>{Auth}
+                    <NavLink href="./auth" style={styles.text} onClick={this.logout}>{logout}</NavLink>
                   </NavItem>
                   <NavItem>
                     <NavLink href="https://github.com/justisGipson" style={styles.text}>Github</NavLink>
@@ -90,17 +93,18 @@ class Sitebar extends Component{
                 </Nav>
               </Collapse>
             </Navbar>
-
-            <Modal isOpen={this.state.isOpen} toggle={this.toggle} className={this.props.className} style={styles.modal}>
+            <div>
+            <Modal  isOpen={this.state.isOpen} toggle={this.toggle} className={this.props.className} style={styles.modal} centered={true}>
                 <ModalHeader style={styles.modalHead}>About gearLocker</ModalHeader>
-                  <ModalBody style={styles.modal}>
-                      {/* <b>gearLocker is designed for tracking your gear for backpacking trip, overnighters, and those long weekends.</b><br /> */}
-                      Hopefully you can find some use out of this. Keep track of all your gear or just the things you plan on taking on any trip. This app will be in constant development, and will hopefully be mobile responsive so you can keep it bookmarked on your phone to use when you're not at your computer.
-                    </ModalBody>
-                  <ModalFooter style={styles.modal}>
-                      <Button color='info' onClick={this.toggle}>Cancel</Button>
-                  </ModalFooter>
-              </Modal>
+                <ModalBody style={styles.modalBody}>
+                    {/* <b>gearLocker is designed for tracking your gear for backpacking trip, overnighters, and those long weekends.</b><br /> */}
+                    Hopefully you can find some use out of this. Keep track of all your gear or just the things you plan on taking on any trip. This app will be in constant development, and will hopefully be mobile responsive so you can keep it bookmarked on your phone to use when you're not at your computer.
+                </ModalBody>
+                <ModalFooter style={styles.modalBody}>
+                    <Button className="btn btn-secondary" size="lg" onClick={this.toggle}>Cancel</Button>
+                </ModalFooter>
+            </Modal>
+            </div>
           </div>
         );
       }

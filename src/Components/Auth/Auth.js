@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
 import Radium from 'radium';
 import APIURL from '../../helpers/environment';
-import {Button, ButtonGroup, Form, FormGroup, Label, Input} from 'reactstrap';
+import {Button, ButtonGroup, Form, FormFeedback, FormText, FormGroup, Label, Input} from 'reactstrap';
 
 const styles = {
     card: {
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        fontFamily: "'Poppins', sans-serif",
-        color: '#c1c6cc'
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      fontFamily: "'Poppins', sans-serif",
+      color: '#c1c6cc'
     },
     font: {
       fontFamily: "'Poppins', sans-serif"
@@ -19,8 +19,15 @@ const styles = {
       fontFamily: "'Poppins', sans-serif",
       fontSize: '3.8rem'
     },
+    font2: {
+      fontFamily: "'Poppins', sans-serif",
+      color: '#C0A478'
+    },
     box: {
-      backgroundColor: 'rgb(60, 82, 112, 0.7)',
+      backgroundColor: 'rgb(60, 82, 112, 0.9)',
+      borderRadius: '1em',
+      paddingLeft: '2em',
+      paddingRight: '2em'
     }
 }
 
@@ -50,15 +57,16 @@ class Auth extends Component {
         'Content-Type': 'application/json'
       }
     })
+      //.then(res => res.text())
       .then(res => res.json())
-      // .then(text => console.log(text))
+      //.then(text => console.log(text))
       .then(data => {
         this.props.setToken(data.sessionToken)
       })
   }
 
   handleChange = (event) => {
-    this.setState({[event.target.id]: event.target.value}, () => console.log(this.state))
+    this.setState({[event.target.id]: event.target.value}/*, () => console.log(this.state)*/)
   }
 
   loginToggle = (event) => {
@@ -78,9 +86,9 @@ class Auth extends Component {
     let signupField = this.state.login
       ? null
       : (
-        <div style={styles.font}>
+        <div>
           <Label htmlFor="username"></Label><br/>
-          <Input type="text" id="username" onChange={this.handleChange} value={this.state.username} placeholder='Username:'/>
+          <Input type="text" id="username" onChange={this.handleChange} value={this.state.username} style={styles.font}  placeholder='Username:'/>
         </div>
       )
 
@@ -90,6 +98,7 @@ class Auth extends Component {
           <h1 style={styles.font1}>{title}</h1>
           <Label htmlFor="email"></Label><br/>
           <Input type="text" id="email" onChange={this.handleChange} value={this.state.email} style={styles.font} placeholder='Email:'/>
+          <FormText style={styles.font2}>Must be a valid email address!</FormText>
           {signupField}
           <Label htmlFor="password"></Label>
           <Input type="password" id="password" onChange={this.handleChange} value={this.state.password} style={styles.font} placeholder='Password:'/><br/>
