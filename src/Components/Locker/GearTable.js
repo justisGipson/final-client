@@ -13,10 +13,13 @@ const styles = {
 }
 
 const GearTable = (props) => {
+    console.log(this.state)
+
     return(
         <div>
             <h3>Your Gear Locker</h3>
-            <hr />
+            <br />
+            <br />
             <Table hover style={[styles.font, styles.box]}>
                 <thead>
                     <tr>

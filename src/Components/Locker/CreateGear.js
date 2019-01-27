@@ -10,7 +10,9 @@ const styles = {
       },
     box: {
       backgroundColor: 'rgb(60, 82, 112, 0.9)',
-      marginTop: '30%'
+      marginTop: '30%',
+      marginLeft: '-10vw',
+      height: '45vh'
     }
 }
 
@@ -46,15 +48,16 @@ class CreateGear extends Component{
         .then(gearData => {
             this.props.updateGearArray()
             this.setState({
-                itemName: '',
-                description: '',
-                weight: '',
-                quantity: ''
+                itemName: gearData.itemName,
+                description: gearData.description,
+                weight: gearData.weight,
+                quantity: gearData.quantity
             })
         })
    }
 
    render(){
+       console.log(this.state)
        return(
            <div style={styles.box}>
                <h3 style={styles.font}>Create new locker items</h3>
@@ -76,6 +79,9 @@ class CreateGear extends Component{
                         <Label for='quantity'>Quantity:</Label>
                         <Input id='quantity' type='integer' name='quantity' value={this.state.quantity} placeholder='Quantity' onChange={this.handleChange} />
                     </FormGroup>
+                    <br />
+                    <br />
+                    <hr />
                     <Button className="btn btn-secondary" size="lg" style={styles.font} type='submit'>Submit</Button>
                </Form>
            </div>

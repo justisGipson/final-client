@@ -28,6 +28,7 @@ class LockerEdit extends Component{
     constructor(props){
         super(props);
         this.state = {
+            owner: '',
             itemName: '',
             description: '',
             weight: '',
@@ -37,6 +38,7 @@ class LockerEdit extends Component{
 
     componentWillMount(){
         this.setState({
+            owner: this.props.user.id,
             itemName: this.props.locker.gear.itemName,
             description: this.props.locker.gear.description,
             weight: this.props.locker.gear.weight,
