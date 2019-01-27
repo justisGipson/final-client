@@ -4,6 +4,7 @@ import Radium from 'radium';
 import Sitebar from './Components/Navbar/Navbar';
 import Auth from './Components/Auth/Auth';
 import Locker from './Components/Locker/Locker';
+// import GearTable from './Components/Locker/GearTable';
 import Background from './assets/20170706_151624.jpg';
 
 import{
@@ -74,6 +75,7 @@ class App extends Component {
       <div className="App" style={bgImage}>
         <Sitebar />
         {protectedViews}
+        {/* <GearTable /> */}
         {/* {this.getToLocker()} */}
       </div>
       </Router>

@@ -12,7 +12,7 @@ const styles = {
     }
 }
 
-const GearTable = (req, props) => {
+const GearTable = (props) => {
     return(
         <div>
             <h3>Your Gear Locker</h3>
@@ -31,11 +31,11 @@ const GearTable = (req, props) => {
                     {props.gear.map((gear, id) => {
                         return(
                             <tr key={id}>
-                                <th scope="row" style={styles.font}>{req.user.id}</th>
-                                <td style={styles.font}>{req.body.gear.itemName}</td>
-                                <td style={styles.font}>{req.body.gear.description}</td>
-                                <td style={styles.font}>{req.body.gear.weight}</td>
-                                <td style={styles.font}>{req.body.gear.quantity}</td>
+                                <th scope="row" style={styles.font}>{gear.id}</th>
+                                <td style={styles.font}>{gear.itemName}</td>
+                                <td style={styles.font}>{gear.description}</td>
+                                <td style={styles.font}>{gear.weight}</td>
+                                <td style={styles.font}>{gear.quantity}</td>
                                 <td>
                                     <Button className="btn btn-secondary" size="lg" style={styles.font} id={gear.id} onClick={e => props.update(e, gear)}>Update Locker</Button>
                                     <Button className="btn btn-secondary" size="lg" style={styles.font} id={gear.id} onClick={props.delete}>Delete Item</Button>

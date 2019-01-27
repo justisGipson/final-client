@@ -74,7 +74,6 @@ class Sitebar extends Component{
       }
 
       render() {
-        let logout = this.isAuthenticated ? 'Logout' : undefined;
         return (
           <div style={styles.navbar}>
             <Navbar expand="md">
@@ -85,7 +84,7 @@ class Sitebar extends Component{
                     <NavLink href='#' onClick={this.toggle} style={styles.text}>About</NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink href="./auth" style={styles.text} onClick={this.logout}>{logout}</NavLink>
+                    <NavLink href="./auth" style={styles.text} onClick={this.logout}>Logout</NavLink>
                   </NavItem>
                   <NavItem>
                     <NavLink href="https://github.com/justisGipson" style={styles.text}>Github</NavLink>
