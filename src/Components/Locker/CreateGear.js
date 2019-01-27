@@ -11,7 +11,6 @@ const styles = {
     box: {
       backgroundColor: 'rgb(60, 82, 112, 0.9)',
       marginTop: '30%',
-      marginLeft: '-10vw',
       height: '45vh'
     }
 }
@@ -47,6 +46,7 @@ class CreateGear extends Component{
         .then(res => res.json())
         .then(gearData => {
             this.props.updateGearArray()
+            console.log(this.props.updateGearArray)
             this.setState({
                 itemName: gearData.itemName,
                 description: gearData.description,
@@ -57,7 +57,6 @@ class CreateGear extends Component{
    }
 
    render(){
-       console.log(this.state)
        return(
            <div style={styles.box}>
                <h3 style={styles.font}>Create new locker items</h3>

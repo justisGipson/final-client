@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Radium from 'radium';
 import APIURL from '../../helpers/environment';
-import {Button, ButtonGroup, Form, FormFeedback, FormText, FormGroup, Label, Input} from 'reactstrap';
+import {Button, ButtonGroup, Form, FormText, FormGroup, Label, Input} from 'reactstrap';
 
 const styles = {
     card: {

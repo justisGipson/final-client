@@ -58,6 +58,7 @@ class LockerIndex extends Component{
         })
         .then(res => res.json())
         .then(gearData => {
+            console.log(gearData)
             return this.setState({gear: gearData})
         })
     }

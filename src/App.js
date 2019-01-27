@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Radium from 'radium';
 import Sitebar from './Components/Navbar/Navbar';
+import Footer from './Components/Footer/Footer';
 import Auth from './Components/Auth/Auth';
 import Locker from './Components/Locker/Locker';
 import Background from './assets/20170706_151624.jpg';
@@ -24,7 +25,7 @@ class App extends Component {
     super();
     this.setToken = (token) => {
       localStorage.setItem('token', token);
-      this.setState({setToken: token})
+      this.setState({token})
     }
     this.state = {
       sessionToken: '',
@@ -75,6 +76,7 @@ class App extends Component {
         <Sitebar />
         {protectedViews}
         {/* {this.getToLocker()} */}
+        <Footer />
       </div>
       </Router>
     );

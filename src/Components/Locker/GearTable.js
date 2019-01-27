@@ -14,7 +14,7 @@ const styles = {
 
 const GearTable = (props) => {
     console.log(this.state)
-
+    console.log('props', props)
     return(
         <div>
             <h3>Your Gear Locker</h3>
@@ -31,7 +31,7 @@ const GearTable = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {props.gear.map((gear, id) => {
+                    {props.gearData.map((gear, id) => {
                         return(
                             <tr key={id}>
                                 <th scope="row" style={styles.font}>{gear.id}</th>
