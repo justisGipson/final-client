@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Radium from 'radium';
-import {Form, Input, Button, Label, FormText, Modal, ModalBody, ModalHeader, ModalFooter} from 'reactstrap'
+import {Form, Input, Button, /*Label*/ FormText, Modal, ModalBody, ModalHeader, ModalFooter} from 'reactstrap'
 // import BottomNavigation from '@material-ui/core/BottomNavigation';
 // import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 
@@ -56,7 +56,7 @@ class Footer extends Component{
     render(){
         return(
             <div>
-                <h3 style={styles.footer}>Created by justisGipson 2019                 <Button className="btn btn-outline-secondary" size="sm" onClick={this.toggle}>Contact</Button></h3>
+                <h3 style={styles.footer}>Created by justisGipson -- 2019                 <Button className="btn btn-outline-secondary" size="sm" onClick={this.toggle}>Contact</Button></h3>
                 <Modal isOpen={this.state.isOpen} toggle={this.toggle} centered={true}>
                     <ModalHeader style={styles.modalHead}>Contact</ModalHeader>
                         <ModalBody style={styles.modalBody}>
