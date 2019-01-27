@@ -13,7 +13,7 @@ const styles = {
 }
 
 const GearTable = (props) => {
-    console.log(this.state)
+    //console.log(this.state)
     console.log('props', props)
     return(
         <div>

@@ -21,14 +21,14 @@ const styles = {
         fontSize: '1.4rem',
         lineHeight: '1.7'
       },
-      modalHead: {
+    modalHead: {
         backgroundColor: '#3c5270',
         color: '#c1c6cc',
         fontFamily: "'Poppins', sans-serif",
         opacity: '.9',
         fontSize: '2.5rem'
       },
-      modalBody: {
+    modalBody: {
         backgroundColor: '#3c5270',
       }
 }
@@ -56,13 +56,14 @@ class Footer extends Component{
     render(){
         return(
             <div>
-                <h3 style={styles.footer}>Created by justisGipson -- 2019                 <Button className="btn btn-outline-secondary" size="sm" onClick={this.toggle}>Contact</Button></h3>
+                <h3 style={styles.footer}>Created by justisGipson -- 2019<Button className="btn btn-outline-secondary" size="sm" onClick={this.toggle}>Contact</Button></h3>
                 <Modal isOpen={this.state.isOpen} toggle={this.toggle} centered={true}>
-                    <ModalHeader style={styles.modalHead}>Contact</ModalHeader>
+                    <ModalHeader style={styles.modalHead}>Contact for any bugs you find, issues you have, or just to say it's rad.</ModalHeader>
                         <ModalBody style={styles.modalBody}>
                             <Form method="POST" action="https://formspree.io/justis710@gmail.com">
                                 <Input type="email" name="email" placeholder="Email:" />
-                                <FormText name="message" placeholder="Enter your message:"></FormText>
+                                <FormText>Must be a valid email address!</FormText>
+                                <Input name="message" placeholder="Enter your message:"></Input>
                             </Form>
                         </ModalBody>
                     <ModalFooter style={styles.modalBody}>

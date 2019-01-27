@@ -8,7 +8,7 @@ import Locker from './Components/Locker/Locker';
 import Background from './assets/20170706_151624.jpg';
 
 import{
-  BrowserRouter as Router, //Route, Switch
+  BrowserRouter as Router, /*Route, Switch*/
 } from 'react-router-dom';
 
 const bgImage = {
