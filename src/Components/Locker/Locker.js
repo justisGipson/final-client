@@ -34,20 +34,6 @@ class LockerIndex extends Component{
         this.fetchGear()
     }
 
-    // addGear = () => {
-    //     fetch(`${APIURL}/locker/newItem`, {
-    //         method: 'POST',
-    //         headers: new Headers({
-    //             'Content-Type': 'application/json',
-    //             'Authorization': localStorage.getItem('token')
-    //         })
-    //     })
-    //     .then(res => res.json())
-    //     .then(newGear => {
-    //         return this.setState({gear: newGear})
-    //     })
-    // }
-
     fetchGear = () => {
         fetch(`${APIURL}/locker/`, {
             method: 'GET',
@@ -58,15 +44,14 @@ class LockerIndex extends Component{
         })
         .then(res => res.json())
         .then(gearData => {
-            console.log(gearData)
-            return this.setState({gear: gearData})
+            return this.setState({gear: gearData.items})
         })
     }
 
     gearUpdate = (event, gear) => {
         fetch(`${APIURL}/locker/update/${gear.id}`, {
             method: 'PUT',
-            body: JSON.stringify({data: gear}),
+            body: JSON.stringify({gear: gear}),
             headers: new Headers({
                 'Content-Type': 'application/json',
                 'Authorization': localStorage.getItem('token')
@@ -74,31 +59,41 @@ class LockerIndex extends Component{
         })
         .then(res => {
             this.setState({updateStart: false})
+            console.log('updated')
             this.fetchGear();
         })
+        // .then(gearData => {
+        //     //return this.state({gear: gearData.items})
+        // })
     }
 
-    gearDelete = (event) => {
-        fetch(`${APIURL}/removeItem/${event.target.id}`, {
+    gearDelete = (event, item) => {
+        fetch(`${APIURL}/locker/removeItem/${event.target.id}`, {
             method: 'DELETE',
-            body: JSON.stringify({data: {id: event.target.id}}),
+            body: JSON.stringify({gear: {item: event.target.id}}),
             headers: new Headers({
                 'Content-Type': 'application/json',
                 'Authorization': localStorage.getItem('token')
             })
         })
-        .then(res => this.fetchGear())
-    }
-
-    setGearUpdate = (event, gear) => {
-        this.setState({
-            gearToUpdate: gear,
-            updateStart: true
+        .then(res => res.json())
+        .then(gearData => {
+            //return this.setState({gear: gearData.items})
+            console.log('gear deleted')
+            this.fetchGear()
         })
     }
 
+    setGearUpdate = (event, gear) => {
+        console.log(gear)
+        this.setState({
+            gearToUpdate: gear,
+            updateStart: true
+        }, console.log(this.state))
+    }
+
     render(){
-        const gear = this.state.gear.length >= 1 ? <GearTable gear={this.state.gear} delete={this.gearDelete} update={this.setGearUpdate} /> : <h2 style={[styles.font, styles.box, styles.titlebar]}>Your Gear Locker</h2>
+        const gear = this.state.gear.length >= 1 ? <GearTable gear={this.state.gear} delete={this.gearDelete } update={this.setGearUpdate} /> : <h2 style={[styles.font, styles.box, styles.titlebar]}>Your Gear Locker</h2>
         console.log("test")
         return(
             <Container>
@@ -107,7 +102,7 @@ class LockerIndex extends Component{
                         <CreateGear token={this.props.token} updateGearArray={this.fetchGear} /> 
                     </Col>
                     <Col md='9'>
-                        {gear} {console.log('table')}
+                        {gear}
                     </Col>
                 </Row>
                 <Col md='12'>

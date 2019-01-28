@@ -66,18 +66,20 @@ class Footer extends Component{
                 <div>
                 <Modal isOpen={this.state.isOpen} toggle={this.toggle} centered={true}>
                     <ModalHeader style={styles.modalHead}>Contact for any bugs you find, issues you have, or just to say it's rad.</ModalHeader>
+                    <Form action="https://formspree.io/justis710@gmail.com"
+                            method="POST">
                         <ModalBody style={styles.modalBody}>
-                            <Form action="https://formspree.io/justis710@gmail.com"
-                            method="POST" target="blank">
+                            
                                 <Input type="email" name="email" placeholder="Email:" />
                                 <FormText>Must be a valid email address!</FormText>
                                 <Input type="textarea" name="message" placeholder="Enter your message:"></Input>
-                            </Form>
+                            
                         </ModalBody>
                     <ModalFooter style={styles.modalBody}>
-                        <Button className="btn btn-secondary" size="sm" type="submit" value="send">Submit{console.log('click')}</Button>
+                        <Button className="btn btn-secondary" size="sm" type="submit" value="send">Submit</Button>
                         <Button className='btn btn-secondary' size='sm' onClick={this.toggle}>Cancel</Button>
                     </ModalFooter>
+                    </Form>
                 </Modal>
                 </div>
             </div>

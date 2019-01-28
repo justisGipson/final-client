@@ -1,5 +1,6 @@
 import React from 'react';
-import {Table, Button} from 'reactstrap';
+import {Table, Button, /*Pagination*/} from 'reactstrap';
+import ReactTable from 'react-table';
 import Radium from 'radium';
 
 const styles = {
@@ -12,10 +13,10 @@ const styles = {
     }
 }
 
-const GearTable = (gear, props) => {
+const GearTable = (props) => {
     console.log('props', props);
     return(
-        <div>
+        <div style={styles.box}>
             <h3>Your Gear Locker</h3>
             <br />
             <br />

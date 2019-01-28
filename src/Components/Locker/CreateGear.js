@@ -68,7 +68,7 @@ class CreateGear extends Component{
                     </FormGroup>
                     <FormGroup style={styles.font}>
                         <Label for='description'>Description:</Label>
-                        <Input id='description' type='text' name='description' value={this.state.description} placeholder='Description' onChange={this.handleChange} />
+                        <Input id='description' type='textarea' name='description' value={this.state.description} placeholder='Description' onChange={this.handleChange} />
                     </FormGroup>
                     <FormGroup style={styles.font}>
                         <Label for='weight'>Weight:</Label>
@@ -85,7 +85,6 @@ class CreateGear extends Component{
                         <Label for='quantity'>Quantity:</Label>
                         <Input id='quantity' type='integer' name='quantity' value={this.state.quantity} placeholder='Quantity' onChange={this.handleChange} />
                     </FormGroup>
-                    <br />
                     <br />
                     <hr />
                     <Button className="btn btn-secondary" size="lg" style={styles.font} type='submit'>Submit</Button>

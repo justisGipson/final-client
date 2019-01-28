@@ -32,17 +32,19 @@ class LockerEdit extends Component{
             itemName: '',
             description: '',
             weight: '',
-            quantity: ''
-        };
+            quantity: '',
+            isOpen: false
+        }
+        this.toggle = this.toggle.bind(this);
     }
 
-    componentWillMount(){
+    componentDidMount(){
         this.setState({
-            owner: this.props.user.id,
-            itemName: this.props.locker.gear.itemName,
-            description: this.props.locker.gear.description,
-            weight: this.props.locker.gear.weight,
-            quantity: this.props.locker.gear.quantity
+            // owner: this.props.user.id,
+            itemName: this.props.gear.itemName,
+            description: this.props.gear.description,
+            weight: this.props.gear.weight,
+            quantity: this.props.gear.quantity
         })
     }
 
@@ -52,15 +54,34 @@ class LockerEdit extends Component{
         })
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault();
-        this.props.update(event, this.state)
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.update(e, {
+            id: this.props.gear.id,
+            itemName: this.state.itemName,
+            description: this.state.description,
+            weight: this.state.weight,
+            quantity: this.state.quantity
+
+        })
+    }
+    
+    toggleModal = () => {
+        this.setState({
+          isOpen: !this.state.isOpen
+        });
+    }
+
+    toggle(){
+        this.setState({
+          isOpen: !this.state.isOpen
+        });
     }
 
     render(){
         return(
             <div>
-                <Modal style={styles.modal} isOpen={true}>
+                <Modal style={styles.modal} isOpen={true} toggle={this.toggle} /*centered={true}*/>
                     <ModalHeader style={[styles.font, styles.modalHead]}>Edit locker item:</ModalHeader>
                     <ModalBody style={styles.modal}>
                         <Form onSubmit={this.handleSubmit}>
@@ -81,6 +102,7 @@ class LockerEdit extends Component{
                                 <Input id='quantity' type='integer' name='quantity' value={this.state.quantity} placeholder='Quantity' onChange={this.handleChange} />
                             </FormGroup>
                             <Button className="btn btn-secondary" size="lg" style={styles.font} type='submit'>Submit</Button>
+                            <Button className="btn btn-secondary" size="lg" style={styles.font} onClick={this.toggle}>Cancel</Button>
                         </Form>
                     </ModalBody>
                 </Modal>
