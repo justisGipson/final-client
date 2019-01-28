@@ -46,7 +46,6 @@ class CreateGear extends Component{
         .then(res => res.json())
         .then(gearData => {
             this.props.updateGearArray()
-            console.log(this.props.updateGearArray)
             this.setState({
                 itemName: gearData.itemName,
                 description: gearData.description,

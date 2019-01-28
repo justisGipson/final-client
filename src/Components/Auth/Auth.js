@@ -31,6 +31,8 @@ const styles = {
     }
 }
 
+// const {email, password} = this.state;
+
 class Auth extends Component {
   constructor(props){
     super(props)
@@ -78,7 +80,15 @@ class Auth extends Component {
     })
   }
 
+  validate = (email, password) => {
+    return{
+      email: email.type === email,
+      password: password.length >= 5
+    }
+  }
+
   render(){
+    // let errors = validate(this.state.email, this.state.password);
     let title = this.state.login ? "gearLocker Login" : "Signup for gearLocker";
     let button = this.state.login ? "Signup" : "Login";
     let signupField = this.state.login

@@ -14,7 +14,6 @@ const styles = {
 }
 
 const GearTable = (props) => {
-    console.log('props', props);
     return(
         <div style={styles.box}>
             <h3>Your Gear Locker</h3>
@@ -44,9 +43,9 @@ const GearTable = (props) => {
                                     <Button className="btn btn-secondary" size="lg" style={styles.font} id={gear.id} onClick={props.delete}>Delete Item</Button>
                                 </td>
                             </tr>
-                        )
-                    })
-                }
+                            )
+                        })
+                    }
                 </tbody>
             </Table>
         </div>    

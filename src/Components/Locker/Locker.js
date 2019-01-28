@@ -59,7 +59,6 @@ class LockerIndex extends Component{
         })
         .then(res => {
             this.setState({updateStart: false})
-            console.log('updated')
             this.fetchGear();
         })
     }
@@ -75,22 +74,19 @@ class LockerIndex extends Component{
         })
         .then(res => res.json())
         .then(gearData => {
-            console.log('gear deleted')
             this.fetchGear()
         })
     }
 
     setGearUpdate = (event, gear) => {
-        console.log(gear)
         this.setState({
             gearToUpdate: gear,
             updateStart: true
-        }, console.log(this.state))
+        })
     }
 
     render(){
         const gear = this.state.gear.length >= 1 ? <GearTable gear={this.state.gear} delete={this.gearDelete } update={this.setGearUpdate} /> : <h2 style={[styles.font, styles.box, styles.titlebar]}></h2>
-        console.log("test")
         return(
             <Container>
                 <Row>
