@@ -82,7 +82,7 @@ class LockerEdit extends Component{
         return(
             <div>
                 <Modal style={styles.modal} isOpen={true} toggle={this.toggle} /*centered={true}*/>
-                    <ModalHeader style={[styles.font, styles.modalHead]}>Edit locker item:</ModalHeader>
+                    <ModalHeader style={[styles.font, styles.modalHead]}>Edit locker item</ModalHeader>
                     <ModalBody style={styles.modal}>
                         <Form onSubmit={this.handleSubmit}>
                             <FormGroup style={styles.font}>
