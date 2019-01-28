@@ -54,10 +54,10 @@ class App extends Component {
       <Router>
         <div className="App" style={bgImage}>
           <Sitebar />
-          {protectedViews}
-          <div>
-            <Footer />
-          </div>
+            {protectedViews}
+            <div>
+              <Footer />
+            </div>
         </div>
       </Router>
     );
