@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Radium from 'radium';
-import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
+import {Button, Form, FormGroup, /*CustomInput,*/ Label, Input} from 'reactstrap';
 import APIURL from '../../helpers/environment';
 
 const styles = {
@@ -33,7 +33,6 @@ class CreateGear extends Component{
     }
 
     handleSubmit = (event) => {
-        // console.log(this.state)
         event.preventDefault();
         fetch(`${APIURL}/locker/newItem`, {
             method: 'POST',
@@ -73,6 +72,13 @@ class CreateGear extends Component{
                     <FormGroup style={styles.font}>
                         <Label for='weight'>Weight:</Label>
                         <Input id='weight' type='text' name='weight' value={this.state.weight} placeholder='Item Weight' onChange={this.handleChange} />
+                            {/* <CustomInput type="select" id="weightSelect" name="weightSelect">
+                                <option value={this.state.weight}></option>
+                                <option>g</option>
+                                <option>Oz</option>
+                                <option>Lbs</option>
+                                <option>Kg</option>
+                            </CustomInput> */}
                     </FormGroup>
                     <FormGroup style={styles.font}>
                         <Label for='quantity'>Quantity:</Label>

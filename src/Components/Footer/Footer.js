@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import Radium from 'radium';
-import {Form, Input, Button, /*Label*/ FormText, Modal, ModalBody, ModalHeader, ModalFooter} from 'reactstrap'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faEnvelope} from '@fortawesome/free-regular-svg-icons';
 // import BottomNavigation from '@material-ui/core/BottomNavigation';
-// import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import {Form, Input, Button, /*Label*/ FormText, Modal, ModalBody, ModalHeader, ModalFooter} from 'reactstrap';
+
+const envelope = <FontAwesomeIcon icon={faEnvelope} size='lg' />
 
 const styles = {
     footer: {
@@ -12,7 +15,7 @@ const styles = {
         fontSize: '1.5em',
         opacity: '.7',
         height: '3vh',
-        marginTop: '39vh'
+        marginTop: '34.5vh'
     },
     modal: {
         color: '#c1c6cc',
@@ -36,12 +39,13 @@ const styles = {
 class Footer extends Component{
     constructor(props){
         super(props);
-        this.toggle = {
+        this.toggle = this.toggle.bind(this);
+        this.state = {
             isOpen: false
         };
     }
 
-    toggle() {
+    toggle(){
         this.setState({
           isOpen: !this.state.isOpen
         });
@@ -55,22 +59,26 @@ class Footer extends Component{
 
     render(){
         return(
+            
             <div>
-                <h3 style={styles.footer}>Created by justisGipson -- 2019<Button className="btn btn-outline-secondary" size="sm" onClick={this.toggle}>Contact</Button></h3>
+                <h3 style={styles.footer}>Created by justisGipson -- 2019<Button className="btn" size="md" onClick={this.toggle}>{envelope}</Button></h3>
+                <div>
                 <Modal isOpen={this.state.isOpen} toggle={this.toggle} centered={true}>
                     <ModalHeader style={styles.modalHead}>Contact for any bugs you find, issues you have, or just to say it's rad.</ModalHeader>
                         <ModalBody style={styles.modalBody}>
-                            <Form method="POST" action="https://formspree.io/justis710@gmail.com">
+                            <Form action="https://formspree.io/justis710@gmail.com"
+                            method="POST" target="blank">
                                 <Input type="email" name="email" placeholder="Email:" />
                                 <FormText>Must be a valid email address!</FormText>
-                                <Input name="message" placeholder="Enter your message:"></Input>
+                                <Input type="textarea" name="message" placeholder="Enter your message:"></Input>
                             </Form>
                         </ModalBody>
                     <ModalFooter style={styles.modalBody}>
-                        <Button className="btn btn-secondary" type="submit" value="send" onClick={this.toggle}>Submit</Button>
-                        <Button className='btn btn-secondary' size='lg' onclick={this.toggle}>Cancel</Button>
+                        <Button className="btn btn-secondary" size="sm" type="submit" value="send">Submit{console.log('click')}</Button>
+                        <Button className='btn btn-secondary' size='sm' onClick={this.toggle}>Cancel</Button>
                     </ModalFooter>
                 </Modal>
+                </div>
             </div>
         )
     }

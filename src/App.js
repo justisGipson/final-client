@@ -72,12 +72,12 @@ class App extends Component {
     const protectedViews = !this.state.sessionToken ? <Auth setToken={this.setSessionState} /> : <Locker />
     return (
       <Router>
-      <div className="App" style={bgImage}>
-        <Sitebar />
-        {protectedViews}
-        {/* {this.getToLocker()} */}
-        <Footer />
-      </div>
+        <div className="App" style={bgImage}>
+          <Sitebar />
+          {protectedViews}
+          {/* {this.getToLocker()} */}
+          <Footer />
+        </div>
       </Router>
     );
   }

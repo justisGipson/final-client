@@ -4,7 +4,7 @@ import Radium from 'radium';
 import CreateGear from './CreateGear';
 import GearTable from './GearTable';
 import LockerEdit from './LockerEdit';
-import APIURL from '../../helpers/environment'
+import APIURL from '../../helpers/environment';
 
 const styles = {
     font: {
@@ -99,6 +99,7 @@ class LockerIndex extends Component{
 
     render(){
         const gear = this.state.gear.length >= 1 ? <GearTable gear={this.state.gear} delete={this.gearDelete} update={this.setGearUpdate} /> : <h2 style={[styles.font, styles.box, styles.titlebar]}>Your Gear Locker</h2>
+        console.log("test")
         return(
             <Container>
                 <Row>
@@ -106,7 +107,7 @@ class LockerIndex extends Component{
                         <CreateGear token={this.props.token} updateGearArray={this.fetchGear} /> 
                     </Col>
                     <Col md='9'>
-                        {gear}
+                        {gear} {console.log('table')}
                     </Col>
                 </Row>
                 <Col md='12'>

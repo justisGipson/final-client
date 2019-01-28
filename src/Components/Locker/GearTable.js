@@ -12,9 +12,8 @@ const styles = {
     }
 }
 
-const GearTable = (props) => {
-    //console.log(this.state)
-    console.log('props', props)
+const GearTable = (gear, props) => {
+    console.log('props', props);
     return(
         <div>
             <h3>Your Gear Locker</h3>
@@ -31,7 +30,7 @@ const GearTable = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {props.gearData.map((gear, id) => {
+                    {props.gear.map((gear, id) => {
                         return(
                             <tr key={id}>
                                 <th scope="row" style={styles.font}>{gear.id}</th>
@@ -52,6 +51,5 @@ const GearTable = (props) => {
         </div>    
     );
 }
-
 
 export default Radium(GearTable);
