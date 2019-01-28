@@ -15,7 +15,8 @@ const styles = {
         fontSize: '1.5em',
         opacity: '.7',
         height: '3vh',
-        marginTop: '34.5vh'
+        width: '100vw',
+        marginBottom: '-.5vh'
     },
     modal: {
         color: '#c1c6cc',
@@ -60,7 +61,7 @@ class Footer extends Component{
     render(){
         return(
             
-            <div>
+            <div className='fixed-bottom'>
                 <h3 style={styles.footer}>Created by justisGipson -- 2019<Button className="btn" size="md" onClick={this.toggle}>{envelope}</Button></h3>
                 <div>
                 <Modal isOpen={this.state.isOpen} toggle={this.toggle} centered={true}>

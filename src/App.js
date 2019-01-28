@@ -76,7 +76,9 @@ class App extends Component {
           <Sitebar />
           {protectedViews}
           {/* {this.getToLocker()} */}
-          <Footer />
+          <div>
+            <Footer />
+          </div>
         </div>
       </Router>
     );

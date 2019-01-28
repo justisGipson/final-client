@@ -114,6 +114,7 @@ class LockerIndex extends Component{
                         {this.state.updateStart ? <LockerEdit true={this.state.updateStart} update={this.gearUpdate} gear={this.state.gearToUpdate} /> : <div></div>}
                 </Col>
             </Container>
+            
         )
     }
 }
