@@ -11,7 +11,8 @@ const styles = {
     box: {
       backgroundColor: 'rgb(60, 82, 112, 0.9)',
       marginTop: '30%',
-      height: '45vh'
+      height: '45vh',
+      position: 'relative'
     }
 }
 
