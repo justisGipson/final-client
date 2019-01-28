@@ -57,16 +57,14 @@ class Auth extends Component {
         'Content-Type': 'application/json'
       }
     })
-      //.then(res => res.text())
       .then(res => res.json())
-      //.then(text => console.log(text))
       .then(data => {
         this.props.setToken(data.sessionToken)
       })
   }
 
   handleChange = (event) => {
-    this.setState({[event.target.id]: event.target.value}/*, () => console.log(this.state)*/)
+    this.setState({[event.target.id]: event.target.value})
   }
 
   loginToggle = (event) => {

@@ -7,9 +7,7 @@ import Auth from './Components/Auth/Auth';
 import Locker from './Components/Locker/Locker';
 import Background from './assets/20170706_151624.jpg';
 
-import{
-  BrowserRouter as Router, /*Route, Switch*/
-} from 'react-router-dom';
+import{ BrowserRouter as Router } from 'react-router-dom';
 
 const bgImage = {
   backgroundImage: `url(${Background})`,
@@ -50,24 +48,6 @@ class App extends Component {
     this.setState({sessionToken: token});
   }
 
-  // getToLocker = () => {
-  //   if(this.state.sessionToken === localStorage.getItem('token')) {
-  //     return(
-  //       <Switch>
-  //         <Route path='/' exact>
-  //           <Locker />
-  //         </Route>
-  //       </Switch>
-  //     )
-  //   } else {
-  //     return (
-  //     <Route path='/Auth'>
-  //       <Auth setToken={this.setSessionState} />
-  //     </Route>
-  //     )
-  //   }
-  // }
-
   render() {
     const protectedViews = !this.state.sessionToken ? <Auth setToken={this.setSessionState} /> : <Locker />
     return (
@@ -75,7 +55,6 @@ class App extends Component {
         <div className="App" style={bgImage}>
           <Sitebar />
           {protectedViews}
-          {/* {this.getToLocker()} */}
           <div>
             <Footer />
           </div>

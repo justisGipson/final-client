@@ -1,5 +1,5 @@
 import React from 'react';
-import {Table, Button, /*Pagination*/} from 'reactstrap';
+import {Table, Button} from 'reactstrap';
 import ReactTable from 'react-table';
 import Radium from 'radium';
 

@@ -62,9 +62,6 @@ class LockerIndex extends Component{
             console.log('updated')
             this.fetchGear();
         })
-        // .then(gearData => {
-        //     //return this.state({gear: gearData.items})
-        // })
     }
 
     gearDelete = (event, item) => {
@@ -78,7 +75,6 @@ class LockerIndex extends Component{
         })
         .then(res => res.json())
         .then(gearData => {
-            //return this.setState({gear: gearData.items})
             console.log('gear deleted')
             this.fetchGear()
         })

@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import Radium from 'radium';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faEnvelope} from '@fortawesome/free-regular-svg-icons';
-// import BottomNavigation from '@material-ui/core/BottomNavigation';
-import {Form, Input, Button, /*Label*/ FormText, Modal, ModalBody, ModalHeader, ModalFooter} from 'reactstrap';
+import {Form, Input, Button, FormText, Modal, ModalBody, ModalHeader, ModalFooter} from 'reactstrap';
 
 const envelope = <FontAwesomeIcon icon={faEnvelope} size='lg' />
 
