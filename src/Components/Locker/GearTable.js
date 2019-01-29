@@ -2,6 +2,7 @@ import React from 'react';
 import {Table, Button} from 'reactstrap';
 import ReactTable from 'react-table';
 import Radium from 'radium';
+import _ from 'lodash';
 
 const styles = {
     font: {
@@ -14,10 +15,15 @@ const styles = {
     }
 }
 
+// let sumWeights = _.sum([this.gear.weight], (sum, x) => {
+//     return sum + x;
+// }, 0);
+
 const GearTable = (props) => {
     return(
         <div style={styles.box}>
-            <h3>Your Gear Locker</h3>
+            <h3><b>Your Gear Locker</b></h3>
+            <h3><small>Total weight:</small></h3>
             <br />
             <br />
             <Table hover style={[styles.font, styles.box]}>
@@ -37,7 +43,7 @@ const GearTable = (props) => {
                                 <th scope="row" style={styles.font}>{gear.id}</th>
                                 <td style={styles.font}>{gear.itemName}</td>
                                 <td style={styles.font}>{gear.description}</td>
-                                <td style={styles.font}>{gear.weight.value}</td>
+                                <td style={styles.font}>{gear.weight}</td>
                                 <td style={styles.font}>{gear.quantity}</td>
                                 <td>
                                     <Button className="btn btn-secondary" size="lg" style={styles.font} id={gear.id} onClick={e => props.update(e, gear)}>Update Locker</Button>
