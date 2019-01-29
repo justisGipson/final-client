@@ -26,7 +26,7 @@ class LockerIndex extends Component{
         this.state = {
             gear: [],
             updateStart: false,
-            gearToUpdate: {}
+            gearToUpdate: {},
         }
     }
 
@@ -86,14 +86,14 @@ class LockerIndex extends Component{
     }
 
     render(){
-        const gear = this.state.gear.length >= 1 ? <GearTable gear={this.state.gear} delete={this.gearDelete } update={this.setGearUpdate} /> : <h2 style={[styles.font, styles.box, styles.titlebar]}></h2>
+        const gear = this.state.gear.length >= 0 ? <GearTable gear={this.state.gear} delete={this.gearDelete } update={this.setGearUpdate} /> : <h2 style={[styles.font, styles.box, styles.titlebar]}></h2>
         return(
             <Container>
                 <Row>
-                    <Col md='3'>
+                    <Col lg='3'>
                         <CreateGear token={this.props.token} updateGearArray={this.fetchGear} /> 
                     </Col>
-                    <Col md='9'>
+                    <Col lg='9'>
                         {gear}
                     </Col>
                 </Row>

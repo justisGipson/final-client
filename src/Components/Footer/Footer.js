@@ -22,7 +22,8 @@ const styles = {
         fontFamily: "'Poppins', sans-serif",
         opacity: '.9',
         fontSize: '1.4rem',
-        lineHeight: '1.7'
+        lineHeight: '1.7',
+        maxWidth: '30vw'
       },
     modalHead: {
         backgroundColor: '#3c5270',
@@ -63,8 +64,8 @@ class Footer extends Component{
             <div className='fixed-bottom'>
                 <h3 style={styles.footer}>Created by justisGipson -- 2019<Button className="btn" size="md" onClick={this.toggle}>{envelope}</Button></h3>
                 <div>
-                <Modal isOpen={this.state.isOpen} toggle={this.toggle} centered={true}>
-                    <ModalHeader style={styles.modalHead}>Contact for any bugs you find, issues you have, or just to say it's rad.</ModalHeader>
+                <Modal isOpen={this.state.isOpen} toggle={this.toggle} centered={true} style={styles.modal}>
+                    <ModalHeader style={styles.modalHead}>Contact about bugs you find, issues you have, or just to say it's rad.</ModalHeader>
                     <Form action="https://formspree.io/justis710@gmail.com"
                             method="POST">
                         <ModalBody style={styles.modalBody}>

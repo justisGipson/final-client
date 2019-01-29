@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Radium from 'radium';
 import APIURL from '../../helpers/environment';
-import {Button, ButtonGroup, Form, FormText, FormGroup, Label, Input} from 'reactstrap';
+import {Button, ButtonGroup, Form, FormGroup, Label, Input} from 'reactstrap';
 
 const styles = {
     card: {
@@ -31,8 +31,6 @@ const styles = {
     }
 }
 
-// const {email, password} = this.state;
-
 class Auth extends Component {
   constructor(props){
     super(props)
@@ -41,12 +39,12 @@ class Auth extends Component {
       username: '',
       email: '',
       password: ''
-    }
+    };
   }
 
   handleSubmit = (event) => {
     event.preventDefault()
-    const url = this.state.login ? `${APIURL}/auth/login` : `${APIURL}/auth/signup`
+    const url = this.state.login ? `${APIURL}/auth/login` : `${APIURL}/auth/signup`;
 
     fetch(url, {
       method: 'POST',
@@ -80,13 +78,6 @@ class Auth extends Component {
     })
   }
 
-  validate = (email, password) => {
-    return{
-      email: email.type === email,
-      password: password.length >= 5
-    }
-  }
-
   render(){
     // let errors = validate(this.state.email, this.state.password);
     let title = this.state.login ? "gearLocker Login" : "Signup for gearLocker";
@@ -95,21 +86,21 @@ class Auth extends Component {
       ? null
       : (
         <div>
-          <Label htmlFor="username"></Label><br/>
-          <Input type="text" id="username" onChange={this.handleChange} value={this.state.username} style={styles.font}  placeholder='Username:'/>
+          <Label htmlFor="username" /><br/>
+          <Input type="text" id="username" onChange={this.handleChange} value={this.state.username} style={styles.font}  placeholder='Username:' required minLength='4'/>
         </div>
       )
-
+    
     return(
       <Form style={styles.card} onSubmit={this.handleSubmit}>
         <FormGroup style={styles.box}>
           <h1 style={styles.font1}>{title}</h1>
-          <Label htmlFor="email"></Label><br/>
-          <Input type="text" id="email" onChange={this.handleChange} value={this.state.email} style={styles.font} placeholder='Email:'/>
-          <FormText style={styles.font2}>Must be a valid email address!</FormText>
+          <Label htmlFor="email" /><br/>
+          <Input type="email" id="email" onChange={this.handleChange} value={this.state.email} style={styles.font} placeholder='Email:' required/>
+          {/* <FormFeedback style={styles.font2}>Must be a valid email address!</FormFeedback> */}
           {signupField}
-          <Label htmlFor="password"></Label>
-          <Input type="password" id="password" onChange={this.handleChange} value={this.state.password} style={styles.font} placeholder='Password:'/><br/>
+          <Label htmlFor="password" />
+          <Input type="password" id="password" onChange={this.handleChange} value={this.state.password} style={styles.font} placeholder='Password:' required minLength='5' /><br/>
           <ButtonGroup>
             <Button className="btn btn-secondary" size="lg" style={styles.font} onClick={this.loginToggle}>{button}</Button>
             <Button className="btn btn-secondary" size="lg" style={styles.font} type="submit">Submit</Button>
