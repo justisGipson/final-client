@@ -12,7 +12,8 @@ const styles = {
       backgroundColor: 'rgb(60, 82, 112, 0.9)',
       marginTop: '30%',
       height: '45vh',
-      position: 'relative'
+      position: 'relative',
+      boxShadow: '.3em .3em hsl(223, 12%, 12%, 60%)'
     }
 }
 
