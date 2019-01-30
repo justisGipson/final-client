@@ -9,22 +9,29 @@ const styles = {
         fontFamily: "'Poppins', sans-serif",
         color: '#c1c6cc'
       },
-    box: {
+    table: {
       backgroundColor: 'rgb(60, 82, 112, 0.9)',
-      maxHeight: '97vh'
+      maxHeight: '90.5vh',
+      overflow: 'scroll'
+    },
+    header: {
+        position: 'fixed',
+        zIndex: '1',
+        height: '7vh',
+        width: '35vw'
     }
 }
 
 const GearTable = (props) => {
     
     return(
-        <div style={styles.box}>
-            <h3><b>Your Gear Locker</b></h3>
+        <div style={styles.table}>
+            <h3 style={styles.header}><b>Your Gear Locker</b></h3>
             {/* <h3><small>Total weight:</small></h3> */}
             <br />
             <br />
-            <Table hover style={[styles.font, styles.box]}>
-                <thead>
+            <Table hover maxHeight='97vh' style={[styles.font, styles.table]}>
+                <thead style={styles.header}>
                     <tr>
                         <th>ID</th>
                         <th>Item Name</th>

@@ -12,7 +12,7 @@ const styles = {
         color: '#c1c6cc',
         fontFamily: "'Poppins', sans-serif",
         fontSize: '1.5em',
-        opacity: '.7',
+        opacity: '.9',
         height: '3vh',
         width: '100vw',
         marginBottom: '-.5vh'
