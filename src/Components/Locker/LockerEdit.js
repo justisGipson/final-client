@@ -33,7 +33,7 @@ class LockerEdit extends Component{
             description: '',
             weight: '',
             quantity: '',
-            isOpen: false
+            isOpen: true
         }
     }
 
@@ -67,17 +67,10 @@ class LockerEdit extends Component{
     toggle(){
         this.setState({
           isOpen: !this.state.isOpen
-        }, console.log(this.state));
-    }
-    
-    closeModal = () => {
-        console.log(this.state.isOpen)
-        this.setState({
-            isOpen: !this.state.isOpen
-        }, console.log(this.state));
+        });
     }
 
-    toggleModal = () => {
+    toggleModal(){
         this.setState({
           isOpen: !this.state.isOpen
         });
@@ -86,7 +79,7 @@ class LockerEdit extends Component{
     render(){
         return(
             <div>
-                <Modal style={styles.modal} isOpen={true} toggle={this.toggle}>
+                <Modal style={styles.modal} isOpen={this.props.true} toggle={this.toggle}>
                     <ModalHeader style={styles.modalHead}>Edit locker item</ModalHeader>
                     <ModalBody style={styles.modal}>
                         <Form onSubmit={this.handleSubmit}>
@@ -110,7 +103,7 @@ class LockerEdit extends Component{
                     </ModalBody>
                     <ModalFooter style={styles.modal}>
                         <Button className="btn btn-secondary" size="lg" style={styles.font} onClick={this.handleSubmit} type='submit'>Submit</Button>
-                        <Button className="btn btn-secondary" size="lg" style={styles.font} onClick={this.closeModal} >Cancel</Button>
+                        <Button className="btn btn-secondary" size="lg" style={styles.font} onClick={this.props.closeUpdate} >Cancel</Button>
                     </ModalFooter>
                 </Modal>
             </div>

@@ -16,7 +16,6 @@ const styles = {
     },
     box: {
         backgroundColor: 'rgb(60, 82, 112, 0.9)',
-        // marginTop: '10.5vh'
     }
 }
 
@@ -85,6 +84,12 @@ class LockerIndex extends Component{
         })
     }
 
+    closeUpdate = () => {
+        this.setState({
+            updateStart: false
+        })
+    }
+
     render(){
         const gear = this.state.gear.length >= 0 ? <GearTable gear={this.state.gear} delete={this.gearDelete } update={this.setGearUpdate} /> : <h2 style={[styles.font, styles.box, styles.titlebar]}></h2>
         return(
@@ -98,7 +103,7 @@ class LockerIndex extends Component{
                     </Col>
                 </Row>
                 <Col sm='12'>
-                        {this.state.updateStart ? <LockerEdit true={this.state.updateStart} update={this.gearUpdate} gear={this.state.gearToUpdate} /> : <div></div>}
+                        {this.state.updateStart ? <LockerEdit true={this.state.updateStart} update={this.gearUpdate} gear={this.state.gearToUpdate} closeUpdate={this.closeUpdate}/> : <div></div>}
                 </Col>
             </Container>
             
