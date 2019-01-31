@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Radium from 'radium';
-import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
+import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
 
 const styles = {
     font: {
@@ -27,6 +27,7 @@ const styles = {
 class LockerEdit extends Component{
     constructor(props){
         super(props);
+        this.toggle = this.toggle.bind(this);
         this.state = {
             owner: '',
             itemName: '',
@@ -35,7 +36,7 @@ class LockerEdit extends Component{
             quantity: '',
             isOpen: false
         }
-        this.toggle = this.toggle.bind(this);
+        
     }
 
     componentDidMount(){
@@ -65,14 +66,20 @@ class LockerEdit extends Component{
 
         })
     }
-    
-    toggleModal = () => {
+
+    toggle(){
         this.setState({
           isOpen: !this.state.isOpen
         });
     }
+    
+    closeModal = () => {
+        this.setState({
+            isOpen: this.state.isOpen
+        }, console.log('click'));
+    }
 
-    toggle(){
+    toggleModal = () => {
         this.setState({
           isOpen: !this.state.isOpen
         });
@@ -82,7 +89,7 @@ class LockerEdit extends Component{
         return(
             <div>
                 <Modal style={styles.modal} isOpen={true} toggle={this.toggle}>
-                    <ModalHeader style={[styles.font, styles.modalHead]}>Edit locker item</ModalHeader>
+                    <ModalHeader style={styles.modalHead}>Edit locker item</ModalHeader>
                     <ModalBody style={styles.modal}>
                         <Form onSubmit={this.handleSubmit}>
                             <FormGroup style={styles.font}>
@@ -101,10 +108,12 @@ class LockerEdit extends Component{
                                 <Label for='quantity'>Quantity:</Label>
                                 <Input id='quantity' type='integer' name='quantity' value={this.state.quantity} placeholder='Quantity' onChange={this.handleChange} />
                             </FormGroup>
-                            <Button className="btn btn-secondary" size="lg" style={styles.font} type='submit'>Submit</Button>
-                            <Button className="btn btn-secondary" size="lg" style={styles.font} onClick={this.toggle}>Cancel</Button>
                         </Form>
                     </ModalBody>
+                    <ModalFooter style={styles.modal}>
+                        <Button className="btn btn-secondary" size="lg" style={styles.font} onClick={this.handleSubmit} type='submit'>Submit</Button>
+                        <Button className="btn btn-secondary" size="lg" style={styles.font} onClick={this.closeModal} >Cancel</Button>
+                    </ModalFooter>
                 </Modal>
             </div>
         )

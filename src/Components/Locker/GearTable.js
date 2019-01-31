@@ -22,20 +22,15 @@ const styles = {
     header: {
         position: 'fixed',
         height: '7vh',
-        width: '50vw',
         overflow: 'hidden'
-    },
-    thead: {
-        overflow: 'auto',
-        width: '100%'
     }
 }
 
 const GearTable = (props) => {
     
     return(
-        <div style={styles.table}>
-            <h3><b>Your Gear Locker</b></h3>
+        <div style={styles.table} >
+            <h3 className="fixed"><b>Your Gear Locker</b></h3>
             {/* <h3><small>Total weight:</small></h3> */}
             <br />
             <br />

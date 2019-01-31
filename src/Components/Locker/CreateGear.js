@@ -6,15 +6,22 @@ import APIURL from '../../helpers/environment';
 const styles = {
     font: {
         fontFamily: "'Poppins', sans-serif",
-        color: '#c1c6cc'
+        color: '#c1c6cc',
+        paddingTop: '.5rem'
       },
     box: {
-      backgroundColor: 'rgb(60, 82, 112, 0.9)',
-      marginTop: '30%',
-      height: '45vh',
-    //   position: 'relative',
-      boxShadow: '.3rem .3rem hsl(223, 12%, 12%, 60%)',
-      borderRadius: '.5em'
+        backgroundColor: 'rgb(60, 82, 112, 0.9)',
+        marginTop: '30%',
+        height: '45vh',
+        boxShadow: '.3rem .3rem hsl(223, 12%, 12%, 60%)',
+        borderRadius: '.5em'
+    },
+    form: {
+        paddingLeft: '.5rem',
+        paddingRight: '.5rem'
+    },
+    formGroup: {
+        textAlign: 'left',
     }
 }
 
@@ -62,7 +69,7 @@ class CreateGear extends Component{
            <div style={styles.box}>
                <h3 style={styles.font}>Create new locker items</h3>
                <hr />
-               <Form onSubmit={this.handleSubmit}>
+               <Form style={styles.form} onSubmit={this.handleSubmit}>
                     <FormGroup style={styles.font}>
                         <Label for='itemName'>Item Name:</Label>
                         <Input id='itemName' type='text' name='itemName' value={this.state.itemName} placeholder='Item Name' onChange={this.handleChange} />
@@ -88,7 +95,10 @@ class CreateGear extends Component{
                     </FormGroup>
                     <br />
                     <hr />
+                    <div>
                     <Button className="btn btn-secondary" size="lg" style={styles.font} type='submit'>Submit</Button>
+                    <Button className="btn btn-secondary" size="lg" style={styles.font} type='reset'>Reset</Button>
+                    </div>
                </Form>
            </div>
        )

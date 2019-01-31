@@ -93,7 +93,7 @@ class Sitebar extends Component{
               </Collapse>
             </Navbar>
             <div>
-            <Modal  isOpen={this.state.isOpen} toggle={this.toggle} className={this.props.className} style={styles.modal} centered={true}>
+            <Modal isOpen={this.state.isOpen} toggle={this.toggle} className={this.props.className} style={styles.modal} centered={true}>
                 <ModalHeader style={styles.modalHead}>About gearLocker</ModalHeader>
                 <ModalBody style={styles.modalBody}>
                     Hopefully you can find some use out of this. Keep track of all your gear or just the things you plan on taking on any trip. This app will be in constant development, and will hopefully be mobile responsive so you can keep it bookmarked on your phone to use when you're not at your computer.

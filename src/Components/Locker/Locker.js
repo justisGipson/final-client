@@ -16,7 +16,7 @@ const styles = {
     },
     box: {
         backgroundColor: 'rgb(60, 82, 112, 0.9)',
-        marginTop: '10.5vh'
+        // marginTop: '10.5vh'
     }
 }
 
@@ -90,14 +90,14 @@ class LockerIndex extends Component{
         return(
             <Container>
                 <Row>
-                    <Col lg='3'>
+                    <Col sm='3'>
                         <CreateGear token={this.props.token} updateGearArray={this.fetchGear} /> 
                     </Col>
-                    <Col lg='9'>
+                    <Col sm='9'>
                         {gear}
                     </Col>
                 </Row>
-                <Col md='12'>
+                <Col sm='12'>
                         {this.state.updateStart ? <LockerEdit true={this.state.updateStart} update={this.gearUpdate} gear={this.state.gearToUpdate} /> : <div></div>}
                 </Col>
             </Container>
