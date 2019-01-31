@@ -87,7 +87,7 @@ class Sitebar extends Component{
                     <NavLink href="./auth" style={styles.text} onClick={this.logout}>Logout</NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink href="https://github.com/justisGipson" style={styles.text}>Github</NavLink>
+                    <NavLink href="https://github.com/justisGipson/final-client" style={styles.text} target="blank">Github</NavLink>
                   </NavItem>
                 </Nav>
               </Collapse>
@@ -96,7 +96,7 @@ class Sitebar extends Component{
             <Modal isOpen={this.state.isOpen} toggle={this.toggle} className={this.props.className} style={styles.modal} centered={true}>
                 <ModalHeader style={styles.modalHead}>About gearLocker</ModalHeader>
                 <ModalBody style={styles.modalBody}>
-                    Hopefully you can find some use out of this. Keep track of all your gear or just the things you plan on taking on any trip. This app will be in constant development, and will hopefully be mobile responsive so you can keep it bookmarked on your phone to use when you're not at your computer.
+                    Hopefully you can find some use out of this. Keep track of all your gear or just the things you plan on taking on any trip. This app will be in constant development, and will hopefully become more mobile responsive so you can keep it bookmarked on your phone to use when you're not at your computer. Please feel free to use the contact form down in the footer to contact me or follow the link to my Github for pull requests.
                 </ModalBody>
                 <ModalFooter style={styles.modalBody}>
                     <Button className="btn btn-secondary" size="lg" onClick={this.toggle}>Cancel</Button>

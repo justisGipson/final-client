@@ -1,6 +1,6 @@
 import React from 'react';
-import {Table, Button} from 'reactstrap';
 import Radium from 'radium';
+import {Table, Button} from 'reactstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faTrashAlt} from '@fortawesome/free-regular-svg-icons';
 import {faEdit} from '@fortawesome/free-regular-svg-icons';

@@ -29,19 +29,16 @@ class LockerEdit extends Component{
         super(props);
         this.toggle = this.toggle.bind(this);
         this.state = {
-            owner: '',
             itemName: '',
             description: '',
             weight: '',
             quantity: '',
             isOpen: false
         }
-        
     }
 
     componentDidMount(){
         this.setState({
-            // owner: this.props.user.id,
             itemName: this.props.gear.itemName,
             description: this.props.gear.description,
             weight: this.props.gear.weight,
@@ -70,13 +67,14 @@ class LockerEdit extends Component{
     toggle(){
         this.setState({
           isOpen: !this.state.isOpen
-        });
+        }, console.log(this.state));
     }
     
     closeModal = () => {
+        console.log(this.state.isOpen)
         this.setState({
-            isOpen: this.state.isOpen
-        }, console.log('click'));
+            isOpen: !this.state.isOpen
+        }, console.log(this.state));
     }
 
     toggleModal = () => {

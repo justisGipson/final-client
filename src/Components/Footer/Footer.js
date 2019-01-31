@@ -67,7 +67,7 @@ class Footer extends Component{
                 <Modal isOpen={this.state.isOpen} toggle={this.toggle} centered={true} style={styles.modal}>
                     <ModalHeader style={styles.modalHead}>Contact about bugs you find, issues you have, or just to say it's rad.</ModalHeader>
                     <Form action="https://formspree.io/justis710@gmail.com"
-                            method="POST">
+                            method="POST" target="blank">
                         <ModalBody style={styles.modalBody}>
                             
                                 <Input type="email" name="email" placeholder="Email:" />
