@@ -67,7 +67,10 @@ const GearTable = (props) => {
                     }
                 </tbody>
             </Table>
-        </div>    
+            <div>
+            
+            </div>
+        </div>
     );
 }
 

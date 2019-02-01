@@ -65,7 +65,6 @@ class App extends Component {
 };
 
 window.onbeforeunload = () => {
-  this.setState({sessionToken: ''})
   localStorage.clear();
 }
 

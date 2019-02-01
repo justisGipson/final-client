@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Radium from 'radium';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEnvelope} from '@fortawesome/free-regular-svg-icons';
 import {Form, Input, Button, FormText, Modal, ModalBody, ModalHeader, ModalFooter} from 'reactstrap';
 
@@ -70,9 +70,9 @@ class Footer extends Component{
                             method="POST" target="blank">
                         <ModalBody style={styles.modalBody}>
                             
-                                <Input type="email" name="email" placeholder="Email:" />
-                                <FormText>Must be a valid email address!</FormText>
-                                <Input type="textarea" name="message" placeholder="Enter your message:"></Input>
+                                <Input type="email" name="email" placeholder="Email:" required/>
+                                <br />
+                                <Input type="textarea" name="message" placeholder="Enter your message:" />
                             
                         </ModalBody>
                     <ModalFooter style={styles.modalBody}>
