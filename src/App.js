@@ -62,6 +62,11 @@ class App extends Component {
       </Router>
     );
   }
+};
+
+window.onbeforeunload = () => {
+  this.setState({sessionToken: ''})
+  localStorage.clear();
 }
 
 export default Radium(App);
