@@ -66,6 +66,6 @@ class App extends Component {
 
 window.onbeforeunload = () => {
   localStorage.clear();
-}
+};
 
 export default Radium(App);

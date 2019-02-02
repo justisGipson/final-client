@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Radium from 'radium';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEnvelope} from '@fortawesome/free-regular-svg-icons';
-import {Form, Input, Button, FormText, Modal, ModalBody, ModalHeader, ModalFooter} from 'reactstrap';
+import {Form, Input, Button, /*FormText,*/ Modal, ModalBody, ModalHeader, ModalFooter} from 'reactstrap';
 
 const envelope = <FontAwesomeIcon icon={faEnvelope} size='lg' />
 
@@ -65,7 +65,7 @@ class Footer extends Component{
                 <h3 style={styles.footer}>Created by justisGipson -- 2019<Button className="btn" size="md" onClick={this.toggle}>{envelope}</Button></h3>
                 <div>
                 <Modal isOpen={this.state.isOpen} toggle={this.toggle} centered={true} style={styles.modal}>
-                    <ModalHeader style={styles.modalHead}>Contact about bugs you find, issues you have, or just to say it's rad.</ModalHeader>
+                    <ModalHeader style={styles.modalHead}>Contact for bugs you find, issues you have, or just to say it's rad.</ModalHeader>
                     <Form action="https://formspree.io/justis710@gmail.com"
                             method="POST" target="blank">
                         <ModalBody style={styles.modalBody}>

@@ -5,8 +5,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faTrashAlt} from '@fortawesome/free-regular-svg-icons';
 import {faEdit} from '@fortawesome/free-regular-svg-icons';
 
-const trash = <FontAwesomeIcon icon={faTrashAlt} size='lg' />
-const edit = <FontAwesomeIcon icon={faEdit} size='lg' />
+// const trash = <FontAwesomeIcon icon={faTrashAlt} size='lg' />
+// const edit = 
 
 const styles = {
     font: {
@@ -50,16 +50,16 @@ const GearTable = (props) => {
                     {props.gear.map((gear, id) => {
                         return(
                             <tr key={id} style={styles.font}>
-                                <th scope="row">{gear.id}</th>
+                                <th scope='row'>{gear.id}</th>
                                 <td>{gear.itemName}</td>
                                 <td>{gear.description}</td>
                                 <td>{gear.weight}</td>
                                 <td>{gear.quantity}</td>
                                 <td>
-                                    <Button className="btn btn-secondary" size="lg" id={gear.id} onClick={e => props.update(e, gear)}>{edit}</Button>
+                                    <Button className="btn btn-secondary" size="lg" id={gear.id} onClick={e => props.update(e, gear)}><FontAwesomeIcon icon={faEdit} size='lg' /></Button>
                                 </td>
                                 <td>
-                                    <Button className="btn btn-secondary" size="lg" id={gear.id} onClick={props.delete}>{trash}</Button>
+                                    <Button className="btn btn-secondary" size="lg" id={gear.id} onClick={props.delete}><FontAwesomeIcon icon={faTrashAlt} size='lg' /></Button>
                                 </td>
                             </tr>
                             )

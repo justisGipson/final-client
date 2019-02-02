@@ -91,7 +91,7 @@ class LockerIndex extends Component{
     }
 
     render(){
-        const gear = this.state.gear.length >= 0 ? <GearTable gear={this.state.gear} delete={this.gearDelete } update={this.setGearUpdate} /> : <h2 style={[styles.font, styles.box, styles.titlebar]}></h2>
+        const gear = this.state.gear.length >= 0 ? <GearTable gear={this.state.gear} delete={this.gearDelete } update={this.setGearUpdate} /> : <div style={[styles.font, styles.box, styles.titlebar]}></div>
         return(
             <Container>
                 <Row>
