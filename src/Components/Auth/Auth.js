@@ -19,10 +19,6 @@ const styles = {
       fontFamily: "'Poppins', sans-serif",
       fontSize: '3.8rem'
     },
-    font2: {
-      fontFamily: "'Poppins', sans-serif",
-      color: '#C0A478'
-    },
     box: {
       backgroundColor: 'rgb(60, 82, 112, 0.9)',
       borderRadius: '1em',
@@ -97,7 +93,6 @@ class Auth extends Component {
           <h1 style={styles.font1}>{title}</h1>
           <Label htmlFor="email" /><br/>
           <Input type="email" id="email" onChange={this.handleChange} value={this.state.email} style={styles.font} placeholder='Email:' required/>
-          {/* <FormFeedback style={styles.font2}>Must be a valid email address!</FormFeedback> */}
           {signupField}
           <Label htmlFor="password" />
           <Input type="password" id="password" onChange={this.handleChange} value={this.state.password} style={styles.font} placeholder='Password:' required minLength='5' /><br/>

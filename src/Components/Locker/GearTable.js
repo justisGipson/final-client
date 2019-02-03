@@ -27,7 +27,7 @@ const GearTable = (props) => {
     return(
         <div style={styles.table} >
             <h3 className="fixed-header"><b>Your Gear Locker</b></h3>
-            <h3><small>Total weight:{}</small></h3>
+            {/* <h3><small>Total weight:{}</small></h3> */}
             <br />
             <br />
             <Table hover style={styles.table}>
