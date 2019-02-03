@@ -75,7 +75,6 @@ class Auth extends Component {
   }
 
   render(){
-    // let errors = validate(this.state.email, this.state.password);
     let title = this.state.login ? "gearLocker Login" : "Signup for gearLocker";
     let button = this.state.login ? "Signup" : "Login";
     let signupField = this.state.login

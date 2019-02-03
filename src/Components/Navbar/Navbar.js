@@ -1,14 +1,6 @@
 import React, {Component} from 'react';
 import Radium from 'radium';
-// import Auth from '../Auth/Auth';
-import {
-    Collapse,
-    Navbar,
-    NavbarBrand,
-    Nav,
-    NavItem,
-    NavLink, Button, Modal, ModalHeader, ModalBody, ModalFooter
-    } from 'reactstrap';
+import { Collapse, Navbar, NavbarBrand, Nav, NavItem, NavLink, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const styles = {
     navbar: {

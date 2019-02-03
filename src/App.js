@@ -6,7 +6,6 @@ import Footer from './Components/Footer/Footer';
 import Auth from './Components/Auth/Auth';
 import Locker from './Components/Locker/Locker';
 import Background from './assets/20170706_151624.jpg';
-
 import{ BrowserRouter as Router } from 'react-router-dom';
 
 const bgImage = {
