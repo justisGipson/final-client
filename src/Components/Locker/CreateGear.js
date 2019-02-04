@@ -97,7 +97,7 @@ class CreateGear extends Component{
                     <hr />
                     <div>
                     <Button className="btn btn-secondary" size="lg" style={styles.font} type='submit'>Submit</Button>
-                    <Button className="btn btn-secondary" size="lg" style={styles.font} type='reset'>Reset</Button>
+                    {/* <Button className="btn btn-secondary" size="lg" style={styles.font} type='reset'>Reset</Button> */}
                     </div>
                </Form>
            </div>
