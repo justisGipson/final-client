@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import Radium from 'radium';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEnvelope} from '@fortawesome/free-regular-svg-icons';
-import {Form, Input, Button, /*FormText,*/ Modal, ModalBody, ModalHeader, ModalFooter} from 'reactstrap';
+import {Form, Input, /*Button, FormText,*/ Modal, ModalBody, ModalHeader, ModalFooter} from 'reactstrap';
+import Button from '@material-ui/core/Button';
 
 const envelope = <FontAwesomeIcon icon={faEnvelope} size='lg' />
 
@@ -15,7 +16,15 @@ const styles = {
         opacity: '.9',
         height: '3vh',
         width: '100vw',
-        marginBottom: '-.5vh'
+        marginBottom: '-.5vh',
+    },
+    a: {
+        color: '#c1c6cc',
+
+        ':hover':{
+            color: '#c1c6cc',
+            textDecoration: 'none',
+        }
     },
     modal: {
         color: '#c1c6cc',
@@ -62,7 +71,7 @@ class Footer extends Component{
         return(
             
             <div className='fixed-bottom'>
-                <h3 style={styles.footer}>Created by justisGipson -- 2019  <Button className="btn" size="md" onClick={this.toggle}>{envelope}</Button></h3>
+                <h3 style={styles.footer}>Created by <a style={styles.a} href="https://justisgipson.com" target="blank">justisGipson</a> -- 2019  <Button className="btn" size="lg" onClick={this.toggle}>{envelope}</Button></h3>
                 <div>
                 <Modal isOpen={this.state.isOpen} toggle={this.toggle} centered={true} style={styles.modal}>
                     <ModalHeader style={styles.modalHead}>Contact for bugs you find, issues you have, or just to say it's rad.</ModalHeader>
