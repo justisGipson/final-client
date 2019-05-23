@@ -71,7 +71,7 @@ class Footer extends Component{
         return(
             
             <div className='fixed-bottom'>
-                <h3 style={styles.footer}>Created by <a style={styles.a} href="https://justisgipson.com" target="blank">justisGipson</a> -- 2019  <Button className="btn" size="lg" onClick={this.toggle}>{envelope}</Button></h3>
+                <h3 style={styles.footer}>Created by <a style={styles.a} href="https://justisgipson.com" target="blank">justisGipson</a> -- 2019  <Button className="btn" size="large" onClick={this.toggle}>{envelope}</Button></h3>
                 <div>
                 <Modal isOpen={this.state.isOpen} toggle={this.toggle} centered={true} style={styles.modal}>
                     <ModalHeader style={styles.modalHead}>Contact for bugs you find, issues you have, or just to say it's rad.</ModalHeader>
