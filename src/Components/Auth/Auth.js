@@ -20,7 +20,7 @@ const styles = {
       fontSize: '3.8rem'
     },
     box: {
-      backgroundColor: 'rgb(60, 82, 112, 0.9)',
+      backgroundColor: 'rgba(60, 82, 112, 0.9)',
       borderRadius: '1em',
       paddingLeft: '2em',
       paddingRight: '2em'
