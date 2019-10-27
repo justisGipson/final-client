@@ -1,5 +1,5 @@
 'use strict';
-
+//imports
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
@@ -536,7 +536,9 @@ module.exports = function(webpackEnv) {
           filename: 'static/css/[name].[contenthash:8].css',
           chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
         }),
-
+      // Remove unused css with PurgeCSS. See https://github.com/FullHuman/purgecss
+      // for more information about PurgeCSS.
+      // Specify the path of the html files and source files
       new PurgecssPlugin({
         paths: [paths.appHtml, ...glob.sync(`${paths.appSrc}/*`)]
       }),
