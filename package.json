@@ -13,7 +13,6 @@
     "@material/icon-button": "^0.43.0",
     "@svgr/webpack": "4.1.0",
     "babel-core": "7.0.0-bridge.0",
-    "babel-eslint": "9.0.0",
     "babel-jest": "23.6.0",
     "babel-loader": "8.0.5",
     "babel-plugin-named-asset-import": "^0.3.4",
@@ -53,6 +52,7 @@
     "react-dev-utils": "^8.0.0",
     "react-dom": "^16.11.0",
     "react-router-dom": "^4.3.1",
+    "react-scripts": "^3.3.0",
     "reactstrap": "^7.0.2",
     "resolve": "1.10.0",
     "sass-loader": "7.1.0",
@@ -69,9 +69,10 @@
     "node": "12.1.0"
   },
   "scripts": {
-    "start": "node scripts/start.js",
-    "build": "webpack",
-    "test": "node scripts/test.js",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
     "postbuild": "purgecss --css build/static/css/*.css --content build/static/index.html build/static/js/*.js --out build/static/css"
   },
   "eslintConfig": {
