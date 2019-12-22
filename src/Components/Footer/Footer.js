@@ -14,7 +14,7 @@ const styles = {
         fontFamily: "'Poppins', sans-serif",
         fontSize: '1.5em',
         opacity: '.9',
-        height: '3vh',
+        height: '4vh',
         width: '100vw',
         marginBottom: '-.5vh',
     },
