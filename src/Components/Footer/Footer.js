@@ -17,10 +17,10 @@ const styles = {
         height: '4vh',
         width: '100vw',
         marginBottom: '-.5vh',
+        textAlign: 'center'
     },
     a: {
         color: '#c1c6cc',
-
         ':hover':{
             color: '#c1c6cc',
             textDecoration: 'none',
@@ -33,17 +33,17 @@ const styles = {
         fontSize: '1.4rem',
         lineHeight: '1.7',
         maxWidth: '30vw'
-      },
+    },
     modalHead: {
         backgroundColor: '#3c5270',
         color: '#c1c6cc',
         fontFamily: "'Poppins', sans-serif",
         opacity: '.9',
         fontSize: '2.5rem'
-      },
+    },
     modalBody: {
         backgroundColor: '#3c5270',
-      }
+    }
 }
 
 class Footer extends Component{
@@ -63,7 +63,6 @@ class Footer extends Component{
 
     render(){
         return(
-            
             <div className='fixed-bottom'>
                 <h3 style={styles.footer}>Created by <a style={styles.a} href="https://justisgipson.com" target="blank">justisGipson</a> -- 2019  <Button className="btn" size="large" onClick={this.toggle}>{envelope}</Button></h3>
                 <div>
