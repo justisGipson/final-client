@@ -70,12 +70,6 @@ class LockerEdit extends Component{
         });
     }
 
-    toggleModal(){
-        this.setState({
-          isOpen: !this.state.isOpen
-        });
-    }
-
     render(){
         return(
             <div>

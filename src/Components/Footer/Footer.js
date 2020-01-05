@@ -61,12 +61,6 @@ class Footer extends Component{
         });
     }
 
-      toggleModal = () => {
-        this.setState({
-          isOpen: !this.state.isOpen
-        });
-    }
-
     render(){
         return(
             
@@ -75,14 +69,11 @@ class Footer extends Component{
                 <div>
                 <Modal isOpen={this.state.isOpen} toggle={this.toggle} centered={true} style={styles.modal}>
                     <ModalHeader style={styles.modalHead}>Contact for bugs you find, issues you have, or just to say it's rad.</ModalHeader>
-                    <Form action="https://formspree.io/justis710@gmail.com"
-                            method="POST" target="blank">
+                    <Form action="https://formspree.io/justis710@gmail.com" method="POST" target="blank">
                         <ModalBody style={styles.modalBody}>
-                            
                                 <Input type="email" name="email" placeholder="Email:" required/>
                                 <br />
                                 <Input type="textarea" name="message" placeholder="Enter your message:" />
-                            
                         </ModalBody>
                     <ModalFooter style={styles.modalBody}>
                         <Button className="btn btn-secondary" size="sm" type="submit" value="send">Submit</Button>

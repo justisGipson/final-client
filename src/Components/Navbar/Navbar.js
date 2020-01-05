@@ -42,19 +42,13 @@ const styles = {
 class Sitebar extends Component{
     constructor(props) {
         super(props);
-    
         this.toggle = this.toggle.bind(this);
         this.state = {
           isOpen: false
         };
       }
-      toggle() {
-        this.setState({
-          isOpen: !this.state.isOpen
-        });
-      }
 
-      toggleModal = () => {
+      toggle() {
         this.setState({
           isOpen: !this.state.isOpen
         });
@@ -88,7 +82,7 @@ class Sitebar extends Component{
             <Modal isOpen={this.state.isOpen} toggle={this.toggle} className={this.props.className} style={styles.modal} centered={true}>
                 <ModalHeader style={styles.modalHead}>About gearLocker</ModalHeader>
                 <ModalBody style={styles.modalBody}>
-                    Hopefully you can find some use out of this. Keep track of all your gear or just the things you plan on taking on any trip. This app will be in constant development, and will hopefully become more mobile responsive so you can keep it bookmarked on your phone to use when you're not at your computer. Please feel free to use the contact form down in the footer to contact me or follow the link to my Github for pull requests.
+                    Hopefully you can find some use out of this. Keep track of all your gear or just the things you plan on taking on any trip. This app will be in constant development, and will hopefully become more mobile responsive so you can keep it bookmarked on your phone to use when you're not at your computer. Please feel free to use the contact form down in the footer to contact me or follow the link to my Github to open a pull request or submit an issue.
                 </ModalBody>
                 <ModalFooter style={styles.modalBody}>
                     <Button className="btn btn-secondary" size="lg" onClick={this.toggle}>Cancel</Button>

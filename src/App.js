@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import Radium from 'radium';
 import Sitebar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
